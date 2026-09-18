@@ -1,0 +1,1029 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+</head>
+<body>
+<title>Moksh Interio Proposal</title>
+<style>
+  :root{
+    --bg:#f7f5ee;
+    --bg-raised:#efece0;
+    --bg-band:#f2efe4;
+    --bg-card:#ffffff;
+    --line:#e1ddcd;
+    --line-soft:#eae6d8;
+    --ink:#15150f;
+    --ink-dim:#57564c;
+    --ink-faint:#8d8b7c;
+    --accent:#6f9a00;
+    --accent-solid:#c9ff2e;
+    --accent-ink:#0e0f08;
+    --featured-tint:#f4ffdc;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Manrope',-apple-system,BlinkMacSystemFont,sans-serif;
+    font-size:15px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;}
+  a{color:inherit;}
+  .wrap{
+    max-width:1180px;
+    margin:0 auto;
+    padding-inline:clamp(18px,4vw,48px);
+  }
+  h1,h2,h3{
+    font-family:'Archivo',-apple-system,sans-serif;
+    font-weight:800;
+    letter-spacing:-0.02em;
+    margin:0;
+    text-wrap:balance;
+  }
+  .eyebrow{
+    font-family:'Manrope',sans-serif;
+    font-weight:800;
+    font-size:11px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--accent);
+  }
+  .accent{color:var(--accent);}
+
+  /* ---------- header ---------- */
+  header{padding-block:22px 10px; border-bottom:1px solid var(--line-soft);}
+  .header-row{display:flex; align-items:center; justify-content:space-between; gap:24px;}
+  .logo{display:flex; align-items:center; text-decoration:none;}
+  .logo img{display:block; height:30px; width:auto;}
+  nav.primary{display:flex; align-items:center; gap:32px;}
+  nav.primary a{
+    font-size:13px; font-weight:600; text-decoration:none;
+    color:var(--ink-dim); transition:color .15s ease;
+  }
+  nav.primary a:hover{color:var(--ink);}
+  .header-tag{
+    text-align:right; font-size:10.5px; line-height:1.5;
+    letter-spacing:0.1em; color:var(--ink-faint); font-weight:700;
+  }
+  .cta-btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    background:var(--accent-solid); color:var(--accent-ink);
+    font-weight:700; font-size:13px; padding:11px 20px;
+    border-radius:100px; text-decoration:none; white-space:nowrap;
+    border:none; cursor:pointer;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .cta-btn:hover{transform:translateY(-1px); box-shadow:0 10px 26px -10px rgba(111,154,0,.7);}
+  .cta-btn.small{padding:9px 16px; font-size:12px;}
+  .cta-btn.dark{background:var(--ink); color:#fff;}
+  .proposal-strip{text-align:center; padding-block:12px 0;}
+
+  /* ---------- hero ---------- */
+  .hero{
+    padding-block:44px 60px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:48px;
+    align-items:center;
+  }
+  .hero-kicker{display:flex; gap:16px; margin-bottom:20px;}
+  .hero-kicker span{font-size:11px; font-weight:800; letter-spacing:0.14em; color:var(--ink-faint);}
+  .hero-kicker span:not(:last-child)::after{content:"—"; margin-left:16px; color:var(--line);}
+  .hero h1{font-size:clamp(32px,4vw,50px); line-height:1.06;}
+  .hero p.lede{margin-top:18px; max-width:48ch; font-size:16px; color:var(--ink-dim); font-weight:500;}
+  .hero-actions{display:flex; align-items:center; gap:22px; margin-top:28px; flex-wrap:wrap;}
+  .ghost-link{
+    font-size:13px; font-weight:700; text-decoration:none;
+    color:var(--ink); border-bottom:1px solid var(--line); padding-bottom:2px;
+  }
+
+  /* ---------- hero glance (3 packages, quick compare) ---------- */
+  .glance{
+    background:var(--ink); color:#fff;
+    border-radius:20px; padding:28px;
+  }
+  .glance .eyebrow{color:var(--accent-solid); margin-bottom:6px;}
+  .glance h3{color:#fff; font-size:19px;}
+  .glance-rows{margin-top:18px; display:flex; flex-direction:column;}
+  .glance-row{
+    display:flex; justify-content:space-between; align-items:center;
+    gap:14px; padding-block:14px;
+    border-top:1px solid rgba(255,255,255,.14);
+  }
+  .glance-row:first-child{border-top:none;}
+  .glance-row.featured{
+    margin-inline:-14px; padding-inline:14px;
+    background:rgba(201,255,46,.08);
+    border-top:1px solid rgba(201,255,46,.25);
+    border-bottom:1px solid rgba(201,255,46,.25);
+    border-radius:10px;
+  }
+  .glance-row .name{font-size:14px; font-weight:700; display:flex; align-items:center; gap:8px;}
+  .glance-row .pill{
+    font-size:9px; font-weight:800; letter-spacing:0.08em;
+    background:var(--accent-solid); color:var(--accent-ink);
+    padding:3px 8px; border-radius:100px;
+  }
+  .glance-row .sub{font-size:11.5px; color:rgba(255,255,255,.5); font-weight:600; margin-top:3px;}
+  .glance-row .amt{
+    font-family:'Archivo',sans-serif; font-size:18px; font-weight:800;
+    white-space:nowrap; text-align:right;
+  }
+  .glance-row.featured .amt{color:var(--accent-solid);}
+  .glance-row .amt small{
+    display:block; font-family:'Manrope',sans-serif; font-size:9.5px;
+    font-weight:700; color:rgba(255,255,255,.5); letter-spacing:0.06em;
+  }
+
+  /* ---------- sections ---------- */
+  .section{padding-block:64px;}
+  .band{background:var(--bg-band); border-top:1px solid var(--line-soft); border-bottom:1px solid var(--line-soft);}
+  .section-head{margin-bottom:34px; max-width:760px;}
+  .section-head h2{font-size:clamp(27px,3.2vw,38px); margin-top:12px;}
+  .section-head p{margin:14px 0 0; color:var(--ink-dim); font-size:16px; font-weight:500; max-width:60ch;}
+
+  /* ---------- pricing table ---------- */
+  .table-wrap{
+    overflow-x:auto;
+    border:1px solid var(--line);
+    border-radius:18px;
+    background:var(--bg-card);
+  }
+  table.pricing{
+    width:100%;
+    min-width:640px;
+    border-collapse:collapse;
+  }
+  table.pricing th, table.pricing td{
+    padding:16px 20px;
+    text-align:left;
+    border-bottom:1px solid var(--line-soft);
+    vertical-align:top;
+  }
+  table.pricing th.rowlabel, table.pricing td.rowlabel{
+    font-size:12px; font-weight:800; letter-spacing:0.04em;
+    color:var(--ink-dim); white-space:nowrap;
+    background:var(--bg-card);
+    position:sticky; left:0;
+  }
+  table.pricing thead th{
+    background:var(--bg-raised);
+    border-bottom:1px solid var(--line);
+  }
+  table.pricing thead th.rowlabel{background:var(--bg-raised);}
+  .col-head .pkg-num{
+    width:26px; height:26px; border-radius:50%;
+    background:var(--ink); color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Archivo',sans-serif; font-size:11.5px; font-weight:800;
+    margin-bottom:10px;
+  }
+  .col-head .pkg-eyebrow{font-size:10px; font-weight:800; letter-spacing:0.1em; color:var(--accent);}
+  .col-head .pkg-name{font-family:'Archivo',sans-serif; font-size:19px; font-weight:800; margin-top:4px;}
+  .col-head .pkg-badge{
+    display:inline-block; margin-top:8px;
+    background:var(--accent-solid); color:var(--accent-ink);
+    font-size:9.5px; font-weight:800; letter-spacing:0.08em;
+    padding:4px 10px; border-radius:100px;
+  }
+  td.featured, th.featured{background:var(--featured-tint);}
+  table.pricing td.price-cell{font-family:'Archivo',sans-serif; font-size:15.5px; font-weight:700; font-variant-numeric:tabular-nums;}
+  table.pricing tr.subtotal td{background:var(--bg-raised); font-weight:800;}
+  table.pricing tr.subtotal td.featured{background:#e8f7bf;}
+  table.pricing tr.subtotal td.price-cell{font-size:17px;}
+  table.pricing tr.grand td{background:var(--ink); color:#fff; border-bottom:none;}
+  table.pricing tr.grand td.featured{background:#1c2410; color:#fff;}
+  table.pricing tr.grand td.rowlabel{background:var(--ink); color:#fff;}
+  table.pricing tr.grand td.price-cell{font-size:22px; color:var(--accent-solid);}
+  table.pricing tr.cta td{border-bottom:none; padding-top:20px;}
+  table.pricing td.desc-cell{font-size:12.5px; color:var(--ink-dim); font-weight:500; max-width:220px;}
+  table.pricing tr:last-child td{border-bottom:none;}
+  .pkg-tag-muted{
+    display:block; margin-top:8px; font-size:9.5px; font-weight:700;
+    letter-spacing:0.06em; color:var(--ink-faint); text-transform:uppercase;
+  }
+
+  /* ---------- offer banner ---------- */
+  .offer-banner{
+    display:flex; gap:18px; align-items:flex-start;
+    background:var(--bg-card); border:1px solid var(--line);
+    border-left:4px solid var(--accent-solid);
+    border-radius:16px; padding:24px 26px; margin-bottom:36px;
+  }
+  .offer-banner-icon{
+    width:44px; height:44px; flex:none; border-radius:12px;
+    background:var(--accent-solid); color:var(--accent-ink);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .offer-banner h3{font-size:18px;}
+  .offer-banner p{margin:8px 0 0; font-size:13.5px; color:var(--ink-dim); font-weight:500; max-width:66ch;}
+
+  /* ---------- price drop (before/after wow moment) ---------- */
+  .price-drop{
+    margin-top:20px; padding-top:20px;
+    border-top:1px solid var(--line-soft);
+    display:flex; align-items:center; gap:18px; flex-wrap:wrap;
+  }
+  .pd-block{flex:1; min-width:170px;}
+  .pd-label{font-size:9.5px; font-weight:800; letter-spacing:0.08em; color:var(--ink-faint); text-transform:uppercase;}
+  .pd-amt{font-family:'Archivo',sans-serif; font-size:27px; font-weight:800; margin-top:5px; font-variant-numeric:tabular-nums; line-height:1.1;}
+  .pd-before .pd-amt{color:var(--ink-faint); text-decoration:line-through; text-decoration-color:rgba(21,21,15,.3); text-decoration-thickness:2px;}
+  .pd-after .pd-amt{color:var(--accent);}
+  .pd-detail{font-size:11px; color:var(--ink-dim); font-weight:500; margin-top:5px;}
+  .pd-arrow{flex:none; font-size:22px; font-weight:800; color:var(--ink-faint);}
+  .pd-save{
+    flex:none;
+    background:var(--ink); color:var(--accent-solid);
+    font-family:'Archivo',sans-serif; font-weight:800; font-size:13.5px;
+    padding:12px 18px; border-radius:100px; white-space:nowrap;
+  }
+  @media (max-width:560px){
+    .price-drop{flex-direction:column; align-items:flex-start; gap:14px;}
+    .pd-arrow{transform:rotate(90deg);}
+    .pd-save{align-self:stretch; text-align:center;}
+  }
+
+  /* ---------- savings callout ---------- */
+  .savings-callout{
+    margin-top:18px;
+    display:flex; align-items:center; gap:14px;
+    background:var(--featured-tint); border:1px solid var(--accent-solid);
+    border-radius:14px; padding:16px 22px;
+    font-size:13.5px; color:var(--ink-dim); font-weight:600;
+  }
+  .savings-callout svg{flex:none; color:var(--accent);}
+  .savings-callout b{color:var(--ink); font-family:'Archivo',sans-serif; font-weight:800;}
+
+  /* ---------- mobile pricing cards (phone-friendly stand-in for the table) ---------- */
+  .mobile-pricing{display:none; flex-direction:column; gap:18px;}
+  .pkg-block-desc{font-size:12.5px; color:var(--ink-dim); font-weight:500; margin-top:8px;}
+  .mp-rows{display:flex; flex-direction:column; margin-top:20px;}
+  .mp-row{
+    display:flex; justify-content:space-between; align-items:center;
+    gap:12px; padding:10px 4px;
+    border-top:1px solid var(--line-soft);
+    font-size:13.5px;
+  }
+  .mp-row:first-child{border-top:none;}
+  .mp-row span{color:var(--ink-dim); font-weight:600;}
+  .mp-row b{font-family:'Archivo',sans-serif; font-weight:800; font-variant-numeric:tabular-nums;}
+  .mp-row.subtotal{background:var(--bg-raised); border-radius:8px; border-top:none; margin-top:4px;}
+  .pkg-block.featured .mp-row.subtotal{background:#e8f7bf;}
+  .mp-ideal{
+    text-align:center; font-size:10.5px; font-weight:800; letter-spacing:0.08em;
+    color:var(--ink-dim); border:1px solid var(--line);
+    border-radius:100px; padding:9px; margin-top:16px;
+  }
+  .pkg-block.featured .mp-ideal{background:var(--ink); border-color:var(--ink); color:#fff;}
+  .mp-cta{display:block; width:100%; margin-top:12px; text-align:center;}
+  @media (max-width:700px){
+    .table-wrap{display:none;}
+    .mobile-pricing{display:flex;}
+  }
+
+  /* ---------- package note (no lock-in reassurance) ---------- */
+  .pkg-note{
+    margin-top:22px; padding-top:18px;
+    border-top:1px solid rgba(111,154,0,.22);
+    font-size:13px; color:var(--ink-dim); font-weight:600;
+    display:flex; align-items:flex-start; gap:9px;
+  }
+  .pkg-note svg{flex:none; color:var(--accent); margin-top:1px;}
+
+  /* ---------- deliverable breakdown, package by package ---------- */
+  .pkg-block{
+    border:1px solid var(--line);
+    border-radius:20px;
+    background:var(--bg-card);
+    padding:clamp(22px,3vw,32px);
+  }
+  .pkg-block + .pkg-block{margin-top:22px;}
+  .pkg-block.featured{
+    border-color:var(--accent-solid);
+    background:var(--featured-tint);
+    box-shadow:0 0 0 1px var(--accent-solid);
+  }
+  .pkg-block-head{
+    display:flex; justify-content:space-between; align-items:flex-start;
+    gap:18px; flex-wrap:wrap;
+    padding-bottom:22px; margin-bottom:24px;
+    border-bottom:1px solid var(--line-soft);
+  }
+  .pkg-block.featured .pkg-block-head{border-bottom-color:rgba(111,154,0,.25);}
+  .pkg-block-id{display:flex; align-items:flex-start; gap:14px;}
+  .pkg-block-id .pkg-num{
+    width:36px; height:36px; border-radius:50%; flex:none;
+    background:var(--ink); color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Archivo',sans-serif; font-size:15px; font-weight:800;
+  }
+  .pkg-block.featured .pkg-block-id .pkg-num{background:var(--accent-ink);}
+  .pkg-block-id .pkg-eyebrow{font-size:10.5px; font-weight:800; letter-spacing:0.1em; color:var(--accent);}
+  .pkg-block-id h3{font-size:24px; margin-top:3px;}
+  .pkg-block-id .pkg-badge{
+    display:inline-block; margin-top:8px;
+    background:var(--accent-solid); color:var(--accent-ink);
+    font-size:9.5px; font-weight:800; letter-spacing:0.08em;
+    padding:4px 10px; border-radius:100px;
+  }
+  .pkg-block-total{text-align:right;}
+  .pkg-block-total b{
+    display:block; font-family:'Archivo',sans-serif;
+    font-size:24px; font-weight:800; font-variant-numeric:tabular-nums;
+  }
+  .pkg-block-total span{display:block; margin-top:3px; font-size:10.5px; font-weight:800; letter-spacing:0.08em; color:var(--ink-faint);}
+
+  .deliver-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:26px;}
+  .deliver-col-head{
+    display:flex; justify-content:space-between; align-items:baseline;
+    gap:10px; margin-bottom:14px; padding-bottom:10px;
+    border-bottom:1px solid var(--line-soft);
+  }
+  .pkg-block.featured .deliver-col-head{border-bottom-color:rgba(111,154,0,.22);}
+  .deliver-col-head h4{
+    display:flex; align-items:center; gap:7px;
+    font-family:'Manrope',sans-serif; font-size:11px; font-weight:800;
+    letter-spacing:0.1em; text-transform:uppercase; color:var(--ink); margin:0;
+  }
+  .deliver-col-head h4 svg{flex:none; color:var(--accent);}
+  .deliver-price{
+    font-family:'Archivo',sans-serif; font-size:13.5px; font-weight:800;
+    color:var(--ink-dim); white-space:nowrap;
+  }
+
+  /* ---------- add-on ---------- */
+  .addon{
+    display:flex; align-items:center; justify-content:space-between; gap:28px; flex-wrap:wrap;
+    background:var(--bg-card); border:1px solid var(--line);
+    border-radius:18px; padding:26px 28px;
+  }
+  .addon-left{display:flex; align-items:center; gap:18px;}
+  .addon-icon{
+    width:52px; height:52px; flex:none; border-radius:14px;
+    background:var(--bg-raised); border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center; color:var(--accent);
+  }
+  .optional-pill{
+    display:inline-block; background:var(--bg-raised);
+    border:1px solid var(--line); border-radius:100px;
+    padding:5px 12px; font-size:10px; font-weight:800;
+    letter-spacing:0.1em; color:var(--ink-dim); margin-bottom:8px;
+  }
+  .addon h3{font-size:19px;}
+  .addon p{margin:6px 0 0; font-size:13.5px; color:var(--ink-dim); max-width:52ch;}
+  .addon-price{text-align:right; flex:none;}
+  .addon-price b{
+    display:block; font-family:'Archivo',sans-serif;
+    font-size:26px; font-weight:800; font-variant-numeric:tabular-nums;
+  }
+  .addon-price span{display:block; margin-top:3px; font-size:10px; font-weight:800; letter-spacing:0.1em; color:var(--ink-faint);}
+
+  /* ---------- strip ---------- */
+  .strip{border-top:1px solid var(--line-soft); border-bottom:1px solid var(--line-soft); padding-block:32px;}
+  .strip .wrap{display:grid; grid-template-columns:repeat(4,1fr); gap:24px;}
+  .strip-item{display:flex; align-items:center; gap:12px;}
+  .strip-item svg{flex:none; color:var(--accent);}
+  .strip-item span{font-size:12px; font-weight:700; letter-spacing:0.03em; color:var(--ink-dim);}
+
+  /* ---------- investment summary ---------- */
+  .summary{
+    background:var(--ink); color:#fff;
+    border-radius:22px; padding:clamp(28px,4vw,44px);
+    max-width:640px; margin:0 auto;
+  }
+  .summary .eyebrow{color:var(--accent-solid);}
+  .summary h3{color:#fff; font-size:24px; margin-top:10px;}
+  .summary .rec-badge{
+    display:inline-block; margin-top:10px;
+    background:var(--accent-solid); color:var(--accent-ink);
+    font-size:10.5px; font-weight:800; letter-spacing:0.08em;
+    padding:5px 12px; border-radius:100px;
+  }
+  .save-strip{
+    margin-top:18px; padding:14px 16px;
+    background:rgba(201,255,46,.1); border:1px solid rgba(201,255,46,.3);
+    border-radius:12px;
+    display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;
+  }
+  .save-strip span{font-size:11px; font-weight:800; letter-spacing:0.06em; color:rgba(255,255,255,.65); text-transform:uppercase;}
+  .save-strip b{font-family:'Archivo',sans-serif; font-size:15px; font-weight:800; color:var(--accent-solid);}
+  .line-item{
+    display:flex; justify-content:space-between; align-items:center;
+    gap:16px; padding-block:16px;
+    border-top:1px solid rgba(255,255,255,.14);
+  }
+  .line-item:first-of-type{margin-top:22px;}
+  .line-item .li-name{font-size:14px; font-weight:700;}
+  .line-item .li-sub{font-size:11.5px; color:rgba(255,255,255,.5); font-weight:600; margin-top:3px;}
+  .line-item .li-amt{font-family:'Archivo',sans-serif; font-size:19px; font-weight:800; font-variant-numeric:tabular-nums; white-space:nowrap;}
+  .summary-divider{height:1px; background:rgba(255,255,255,.22); margin:6px 0;}
+  .total-row{display:flex; justify-content:space-between; align-items:baseline; padding-block:14px;}
+  .total-row span{font-size:11.5px; font-weight:800; letter-spacing:0.1em; color:rgba(255,255,255,.6); text-transform:uppercase;}
+  .total-row b{font-family:'Archivo',sans-serif; font-size:22px; font-weight:800; font-variant-numeric:tabular-nums;}
+  .total-row.grand{padding-top:18px; border-top:1px solid rgba(255,255,255,.25);}
+  .total-row.grand b{font-size:32px; color:var(--accent-solid);}
+  .fineprint{margin-top:18px; font-size:11.5px; color:rgba(255,255,255,.55); line-height:1.6;}
+  .summary .cta-row{display:flex; gap:12px; margin-top:22px; flex-wrap:wrap;}
+  .summary .cta-row .cta-btn{flex:1;}
+  .summary .cta-outline{
+    flex:1; display:inline-flex; align-items:center; justify-content:center;
+    border:1px solid rgba(255,255,255,.3); border-radius:100px;
+    color:#fff; font-size:13px; font-weight:700; text-decoration:none; padding:11px 20px;
+  }
+
+  /* ---------- final cta ---------- */
+  .final-cta{
+    padding-block:72px;
+    display:grid; grid-template-columns:1.3fr auto;
+    gap:24px; align-items:center;
+  }
+  .final-cta h2{font-size:clamp(27px,3.8vw,42px); max-width:16ch;}
+  .final-cta p{margin-top:14px; color:var(--ink-dim); font-size:15px; font-weight:500;}
+  .final-cta .btn-row{display:flex; justify-content:flex-end;}
+  .arrow-btn{
+    width:64px;height:64px;flex:none; border-radius:50%;
+    background:var(--accent-solid); color:var(--accent-ink);
+    display:flex; align-items:center; justify-content:center;
+    text-decoration:none; transition:transform .2s ease;
+  }
+  .arrow-btn:hover{transform:scale(1.08) rotate(8deg);}
+
+  footer{border-top:1px solid var(--line-soft); padding-block:26px;}
+  footer .wrap{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;}
+  footer .f-left{font-size:11px; color:var(--ink-faint); font-weight:600;}
+  footer .f-right{display:flex; gap:20px;}
+  footer .f-right a{font-size:11px; font-weight:700; letter-spacing:0.06em; text-decoration:none; color:var(--ink-faint);}
+  footer .f-right a:hover{color:var(--ink);}
+
+  @media (max-width:980px){
+    .hero{grid-template-columns:1fr; gap:32px;}
+    .deliver-grid{grid-template-columns:1fr; gap:20px;}
+    .pkg-block-total{text-align:left;}
+    .addon{flex-direction:column; align-items:flex-start;}
+    .addon-price{text-align:left;}
+    .strip .wrap{grid-template-columns:repeat(2,1fr); row-gap:20px;}
+    .final-cta{grid-template-columns:1fr;}
+    .final-cta .btn-row{justify-content:flex-start;}
+    nav.primary{display:none;}
+    .header-tag{display:none;}
+  }
+  @media (max-width:480px){
+    .strip .wrap{grid-template-columns:1fr;}
+    .summary .cta-row{flex-direction:column;}
+    .header-row{flex-wrap:wrap; row-gap:10px;}
+    .logo img{height:24px;}
+    header .cta-btn{padding:9px 14px; font-size:12px;}
+    .addon-price{text-align:left;}
+    .deliver-col-head{flex-wrap:wrap;}
+  }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<header>
+  <div class="wrap header-row">
+    <a class="logo" href="#top">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAdUAAAC6CAYAAAD4bNfMAAAv8ElEQVR4nO2dB3QU5fr/30EsYKGodEGKQaoEBKSKCEgJHQKEgECoRqQTA0KEgBRpoRsg1FBCCzX0JkQEFRCuICgtlBBpYkTu9Z77/s93fjf3HzEzO1tnd/b7OWcPHmd39s1O+c77vM/zfRQppSCEEEKI82RzwT4IIYQQQlElhBBCXAdFlRBCCHERFFVCCCHERVBUCSGEEBdBUSWEEEJcBEWVEEIIcREUVWIKfzx8KL8+epRF0oQQS0FRJR4nPT1ddurQUZw6ecrsoRBCiEuhqBKPcv/ePdmxXXtx5vRps4dCCCEuJ7vrd0lI1qTduiVDOnYUly9dNnsohBDiFiiqxCPcuHFDnaHeuHHD7KEQQojbYPiXuJ3Lly7Ldq3bUFAJIZaHM1XiVn66cEF2DO6AtVSzh0IIIW6HM1XiNs6cPi2D27ajoBJC/AaKKnELx48dV8tmHjx4YPZQCCHEYzD8S1xO8pEjsmvnULOHQQghHoczVeJS9uzeTUElhPgtFFXiMpK2bZd9e/U2exiEEGIaFFXiEtYmJMj+4eFmD4MQQkyFokqcZnFcnIwcHmH2MAghxHSYqEScYlbMTBkzfbrZwyCEEK+AokocZvzYaLk4Ls7sYRBCiNdAUSUOETk8Qq5NSDB7GIQQ4lVQVIndDBk4SG5KTDR7GIQQ4nuJSjNnzJBXr1yRnhkO8Xb69upNQSWEEEdF9dLFS6JFsyCxb+8+CqufE9atu9yze7fZwyCEEN8uqUlPTxe9w8JEzPTpFFY/5I+HD2Wn4GB58MABs4dCCCHWqVOdFTNTdO/6vkxPT6e4+gk41jDGP37suNlDIYQQ65k/fHnokBoOvnD+PIXV4ty/d092bNceLdzMHgohhFjXUenqlSuidYuWYueOHRRWi3Lnzh3Zrk0bce7cObOHQggh1rcpfPTokQjv2098Nm48hdVi3LhxQ7Zt1VpcvnTZ7KEQQoh/ef/GLVwokMSCUKFrhkTM5PKly7Jd6zbiWkqK2UMhhBD/NNRHEktQ06ZYe6Ow+jA/XbighnzTbt0yeyiEEOLfXWpSb6aKVs1biMQNGymsPggeiILbtkNyktlDIYQQn8Xlrd+GDh4sRo0YSWH1IU6eOKGWzTx48MDsoRBCiE/jln6qq1auxKxVpqWlUVy9nOQjR2RopxAYPJg9FEII8Xnc1qQctY1BjZtgvZXC6qXs2b1bdu0cqmZyE0II8WJRBXfv3kVmsFi6eAmF1ctI2rZd9u3V2+xhEEKIpXCrqGYQPWaMGPBhfwqrl7A2IUH2Dw83exiEEGI5PCKqYNvWraJ5k6by+vXrFFcTiV+xQkYOjzB7GIQQYkk8Jqrg7NmzEFbxVXIyhdUEZs+cJaM+GWX2MAghxLJ4VFQByja6hHQW8+bMobB6kPFjo+WMadPMHgYhhFgaj4tqBlM/n4IerRK9Os0ag78QOTxCLo6LM3sYhBBieUwTVbBv7z7RMqi5uHjxIoXVTQwZOEiuTUgwexiEEOIXmCqq4OLFi6qw7tu7j8LqYvr26i03JSaaPQxCCPEbTBdVADef3mFhCAlTWF1EWLfucs/u3WYPgxBC/AqvENUM5s2ZgyQm+eDBA4qrg2CNGq34Dh44YPZQCCHE7/AqUQVfJSerZTdnz56lsNpJenq6aoyPVnyEEEI8j9eJKrh+/boqrNu2bqWwGgRN4ju2a696LhNCCDEHrxTVDAZ82B8WhxRWG9y5c0dtLn7u3Dmzh0IIIX6NV4sqWLp4CUz55d27dymuWXDjxg3ZtlVrcfnSZbOHQgghfo/XiyrAGiHayJ05fZrCmonLly7Ldq3biGspKWYPhRBCiK+IKkhLS0PjczRAp7AKIX66cEEN+abdumX2UAghhPiaqGYwasRIMXTwYL8WVszYg9u2Q3KS2UMhhBDiy6IKEjdsxKxVpt5M9TtxPXnihFo2g8YEhBBCvAufFFWA0pGgpk2x3uo3wpp85IgM7RSiOlARQgjxPnxWVAHCn52Cg0XcwoWWF9aDBw7Irp1DxaNHj8weCiGEECuKagafjRsvwvv2s6ywJm3bLsO6dTd7GIQQQvxBVMHOHTtEk0bvyatXrlhKXNcmJMj+4eFmD4MQQog/iSq4cP68aNEsSHx56JAlhDV+xQoZOTzC7GEQQgjxR1EF6enponvX98WsmJk+LaxzZs2WUZ+MElbltYAA0S64vdnDIIQQl2I5Uc0gZvp09GiV6NwifIzxY6Pl9KlThVWpVr26WLdxg8ibN69i9lgIIcSVWFZUwb69+9Rw8MWLF31GWKM+GSUXx8UJq9KgYUOxcs1q5dlnn6WgEkIsh6VFFVy9ckW0DGqORCavF9YhAwfJ+BUrhFXpHBoq5i+IpZgSQiyL5UUVwCwhvG8/MXniRK8V1r69estNiYnCqgz/+GMxZlw0BZUQYmn8QlQziJ3/hegS0lmiobfwIsK6dZd7du8WVmXWnDmid98+FFRCiOXxK1EFXyUnq/aGZ8+e9QphRa/YgwcOCCuSI0cOsXTFCtGkWVMKKiHEL/A7UQWpN1NF8yZNYcxvmrAiK7ld6zYSvWKtSN68eUXC+nWiVu1aFFRCiN/gl6KawdDBg0XUqNEeF1aEnzu2a4+OM8KKFC5cWGzcslmUKVuWgkoI8Sv8WlRB/PLlAjPGtLQ0j4jrnTt31Obi586dE1akTNmyqqAWLlyYgkoI8Tuymz0AbwAzxqDGTUTsooWyUmCg28Tgxo0bMqRDR3EtJUVY1dQBNajCQkRHR2f5sBUYGCiCgoJM/VuvXLkily1bluW2Jk2aiDfffNNSx4IQX4Ci+l/u3r2LGav4dOwYGdq1q8tvRtdSUmRwu/Yi7dYtYUWaNGuKLF9L3cSx7j169Ogst+XJk0ecOXNGFipUyLS/ediwYWLt2rVZbsufPz9E1eNjIsTf8fvw7+N8OjoKa60uDQX/dOGCbNuqtWUFNaxXL8sJqi3u3bsnPv74Y9O+f8+ePVJLUAkh5kFRzYLEDRuRHSxTb6Y6La5nTp+WwW3bYS1VWJEx46JF5MgRfiWoGSxfvlwcPHjQlAzyoUOHmvG1hBAbUFQ1OHv2rFrP+lVyssM3zZMnTshOHTqKBw8eCKuaOnQODfVLQc1g0KBBHv/O6dOny1OnTum+R0qvKMMmxO+gqOpw/949ODDBicnuO1TykSMytFOIapFoRVOHlWtW09RBCHHixAkxY8YMjynYrVu35Pjx4z31dYQQO6GoGmDyxInwDpZ/PHxo6OZ58MAB2bVzqHj06JGwqqlDterV/V5QMxg7dqy4efOmR4R15MiRhpYSOFMlxBwoqgbZuWOH2u3m6pUrunerpG3bZVi37sKKFC1WjKYOJiYtff3113Lx4sVu/x5CiONQVO3g4sWLan/WfXv3ZSmsaxMSZP/wcGFVU4cNmxJp6qAB6kUPHTrk1unh4MGDxX/+8x93fgUhxEkoqnaSnp4ueoeFiRnTpv3lBhq/YoWMHB4hrEit2rXElu3blNy5c1NQTUpaiouLk8nJyYbfz/AvIeZA8wcHmT1zljh18pSMmT1LrFi2TEybMlVYESuaOriL7777TsTExMgBAwa49Pe6f/++HDVqlDATdHU6evQoDC/E9evX1Yz2f/7zn+K5554TuXPnFqVLlxYVKlQQb7/9tnjhhRfcer6kpKRI/NY//PCDuHbtmkhNTVUfdv/880+RM2dOdTx4lShRQlSrVk3Url3breN58OCBOp7Tp0+r9qP3798Xv/76q3j48KE6nly5cuE3EcWKFRPlypVTXyVKlLB7THPnztV8UipfvryoW7euU39nbGys/Pe//53lttdff13Ur19fMbJE8e2332a57dVXXxVNm2ad3Pjll1/Kr7/+Wly6dAnOc+L3338XU6ZMERUrVnT4b0pOTpZIJPzHP/4h0tLS1HMWD5s4Fi+99JIoW7aseOONN0S9evUUj4qqovB+qsWXhw6J+m/XU7OErUiffn3FsIgIngB2EB0dLTp06CALFCiguDIRCjcaT3P79m05b948kZCQoIqp0czwRo0ayT59+sAq0WW/AW66GzZsEElJSeLHH3+067PPPPOMbNGihejbt6945513XDamDRs2yNWrV4utW7eKP/74w67P5s+fX77zzjsQGYGx5cqVy+a4wnWWlgYMGABRFc5GWvAgkBVhYWEQVZv72L59u3q+ZkWrVq3UvzeDn376SU6bNk11Bbt9+/bf3u9IKSIe/mbPni0SExMNXzP58uWTLVu2FP3798eDoeL28C/DSPpYVVBh6kBBtR9k5kZGRrpsf7BCnDNnjt2fc/a6HTVqlCxZsqSATaNRQQUQl02bNqk3z2rVqsmvvvrKqYEsXbpUBgYGSgjGjBkz7BZUgCx8PBhAFGrXri1//PFHp8YEww/8bW3btlUFwV5BBbdu3RIQ5K5du4qiRYvihi6vXbvmNzfbUaNGSczY8dCWlaDay/Xr12Xnzp0lZuxz58616yEUs9gFCxaISpUqqQ/Ezh4HrqmSvzF/Qazfmzo4w5IlS9SZlSv2NWTIEPGvf/1LeIpvv/0WNyY5btw4p01Ljh8/rs6eRowYYfdvcezYMVmlShXZrVs3cfLkSeEqjhw5ooaEly9f7tDxmTBhgqxXr576t7kK/M6YXe3YsUP4A82aNVPPL1ed1/Hx8RJh3JUrVzqVyIfP4uEL4rpmzRqHr1+KKvkfzz77rGrq0KBhQwqqFyQtrVu3Tu7atSvLbdmzZ3f5THXr1q3y3XffVdegXAXW6CZMmCCCg4PtGlCHDh3UNWp3ABHr0aOH2Lx5s11jGjZsmBwxYoRbxvTaa6+Jnj17Wv6669Chg0SI2FWMGTNGhoaGutQGFvsKCQkRkyZNckhYKapE5eWXXxbrNm6gqYMd1KhRQ3MbkjVmzZrl8NPuw4cPpV4YGWuWrmTv3r2yffv2aoKNO0CYFOE5o+8fPny4cCcQ+y5duqjhdaMPHEiccRdmNmfwFHv37lVngq5sy/jpp58Kd4BZK46JXnKYFsz+Jaqpw8rVq0WBgq5LrvEHmjdvrmYRbtmyJcvtSNho3769Q0lLkydPRiJHltuQ1QrBdWStNSvOnz8vMTO05QCGLNaGDRuKmjVrioIFC6qZv3iqxzgPHDggDh8+rPt5hOfKli0rR44cafP36NevnzJ79myJDF8tkJGKrOMXX3xRdfpCOBEtHL///nt1HdhWKBAz1qioKLF+/XqXRB4wFoSGMevEeJ5++mnx22+/qQ8qV65cEfBrxguZyo9/rkePHpa/9n777TeX7QvhWa22jJlBxnWDBg1E1apV1WsVER6s4eI47NmzR/V412PgwIGiTJkySCozfHwoqn5OhYoVxOJly1CCYPmL2h0ge3H//v1/u1ECXLwIF8bFxdm1z0uXLsmpU7VLtCZNmqQKmqvCv8iK1QufPfXUU+pTOzJM8+bNq3mefPfdd2p4dOfOnZr7wlpaixYtpJEsSwgexD4zjRs3VmeYKN3RMyK5evWqmrmM46O3doeMYqwjV6lSRdFrs6f1gJNx4541axYeshQjEYht27YhtK9+N2bMERHWrG83SuHChQWWHd566y1k4qolL0geQqJcVqSmpsqPPvpId5946Pvss89Et27ddI/Jpk2bJH5/rQQ4lGl98MEH6jmSM2dOQ/dIhn/9GJg6bNy8maYOTlCqVClFL1QJW8HDhw/bFULC/rIS6QxRadeuneKqUjeYSuChQO/mdOjQIaxdKXqCCipXrqzs2LFD0QvJYTZstG1dcHCwglkxwBoXakCTkpKUkJAQxZazV9GiRZUJEyYoGDtmsrZm0HpgRqPFM888o5b5GBFUgBtz+/btlTVr1iioa4VLVvfu3f3y+itQoICaqXvt2jVl6dKlCqITbdu2VRo2bKh07txZKViwYJa/C6I0EF0tatWqpa7H2xJU0LJlS+XYsWP4V/M9OO+mT59u+O+iqPopLVu1EktXrPDLi9nVjBo1SilTpoxLkpZ2794tMYvRuoFj5uVK9NYJEe5FUkl1O9fZo6KiFL01QiRfHT9+3NCDxsSJE9X12Pj4eKV06dJ2n68Y+8KFC3Xf8+WXX+puh8GEFijTKVOmjEPX0euvv65MnTrVL6/BSpUqqZnYEFJ7Pofa1vj4eM3tgYGBat2wPUsuMCtJTExUMFvWAkstiDIY2R9F1Q/pFx4ups6Y7pcXs7vQe5L95ptvUDJh6ILUm8VBnDNu4LZmqkbCvwh96a0pocVcpUqVHDpPMEusXr265vbY2FhD+6lTp46CmblwglatWim1a9fWTSq7e/eu1GuYQFxH/vz51VpmR1ylENJHSFZrmQIPUI5G3hYtWqQ6cWXFzZs31ZC9ESiqfsaEyZPEkGFDKagu5r333lMeX//LzJgxY9ReqHr7mDZtmkSSTVYUL15cXZ/NwBXhX6zpaYH1rPDwcKe+RM9aEeuKniQoKEhzGxKarl69qrkda3xaIHT+ww8/+I1pg6uiI0WLFnXo3IJTkha4/rAE4ei4ihUrpvTu3VtzO2bARqCo+pmpQ/vgYAqqG28WCJlmRUbSkhZIvkBihY3kJMPHzshMVc9s4P333xfO0qxZMwVJPFpP/kZDwK4APq96IGtYi1KlSmlug5sSwoZoVP/LL79QXG2AzPVQB41lvv/+e4lOYVqg9thZYDaixe7duw3tg6LqJ6YOazesp6mDmylSpIiiNzuD09KRI0ekvc3H33vvPZTm/OXYOTtTvXz5stRL9nDWRzZz0ogWSNTxFChx0UMv+xkevXrA0B+h+UKFCqk2iBEREXL9+vXy559/pshm4f/rKDDH1wKNC1xhjI/lFWQjZwUaJRg5piyp8QNTh2XxK8RrAQEUVA8wZMgQBbZpWd0AEGbEzRfZhpk5evSohOBqJSfZk3loFFv1eTAXz549u9OiAMHRwhEf36SkJIkaQ7g+Xb58Wa19xAvZ0np1qVrdVzLQMpIH6M4Cy0St7iuZvwPJN3hlkDt3btWPtmLFighNqmUj5cqV89trseZ/s7kdAVm4epGZypUru+QhRs+eE2PQKvXJgKJq8VDLsvh4mjp4GBi/o44yK+AZO2fOHJl5vRL+vlqC8N/i878dP2cTlWzZunliFqkXcn3cnAJ1u1gDdoX5uiMgsQrHVKvUSQvMbmCKkdkYo0iRIrJJkyZwmMI+/eraDAgIcMv5gjC83kzWVRixQ2T418KmDus3JVJQTQB9Lbt37665HXWcaWlpquotWrRIs/k4kpMQFvZ2dxt3jmH8+PHoUqOKmlmCCpAAg4xVWzWvRkCJDrqiwH3p3XffRQa234SJ8+TJY/lzlqJqQd6uV081dXj++ecpqCaB+kqE3rMC4gCxtNV8HPvQSk4y6u6iBcoPzMaWjWCfPn3kJ598ohua9SQIAyPSkLknqLPs27dPDQnDW1iYjC2bSlfwnA0nMD2efPJJYTZGuuBQVC1o6rBoyWKKqcnky5dP0WrWDGBd2KlTJzULNisaNWqkOgo5+v22wr96ZSKeTKDTAh1CjNayepLixYsr27ZtUxDOhb2jVnazvWt4aGaQnJzssLA620btzp070pm2aZ4gl0ZmvbecsxlwTdVC9B/wkRgwaBAF1Uvo27evsmzZMjTq/ts23MC0SlrclZyUGa0Mxwzmz58v0KPS3SYAWpnJMJ7QA2KGhxJkFyNMjocEvZkM1ttcOcOsVauWkpHZfO7cOXn06FG17yuM/NEEQOthSW+W2K9fP9XoXS+6oCWezva+1avT9RYKFSqkuQ3XDJy63D2bRbMEW1BULWTqwBpU7yMmJkbNeLSVfZoZGNeXLVvWqWNpa6aKbNRs2bJphrMQon7rrbdMOZ+WLVumu3aF9eq4uDi7xpYnTx63hVdhN4iOOZnBmjkEFmKObO+DBw/C/EN3PzD+2Ldvn0SYOavtWM/VEuuUlBRn/gSR1YOft1GxYkXdhxKc82ads5lh+NcCLFqymILqpVStWlVBmNAor776qtuSkzKDtVokAOkJm1lotdLL8Iy1V1DNCv9DHFFiBfP81NRUBcb7KKvRI3M5jj21ts42dPe0w5UjoH0bWrfp2Qx6AxRVH+b5559XTR3edkHRM3EfWFu1FW7NnJzkqQQzvc4c58+fN+xX7Grw3Vq0adPGoX3a0wrPXTRu3FhBWzy9DFi9MCw6BmmBUp+NGzdKR52K0DjB23n55ZcVZExrsWrVKkQGTD/QPimqWCzOX6CA8Gfw90NQA53wuiSeIU+ePIqeBWEGaADeoUMHlxxPIyICr1SEgLVAn0lXWAmi847R9/72229Sb31QK6PaFpglegMvvfQSjCR06y210GtQkFEf7Qj2RFLMplOnTprbYLQfGhqKBghOnbO3b9+Wx44dk34lqugksC1pu6hararwV1OHxC2bRanXXqOg+ghdu3bVbS2FJBR3Jyc9TkBAgG4TAJSyILkH63yO7P/XX3+VQUFBEj1gV65caWgftmbply5dsnscFy5ckDNnzhTOAG/m+vXry7179zr9kKHXSg49RrXQ67QD0Dv2008/tWt8nTt3zjKRzlvp0aOHgvufFkgSQzs+NKl3ZP9ojlCnTh21AYOjjRJ8UlSzPfGEyJ0nj7IqIUHp3beP8CcCK1dWTR0QCjF7LMQ+MJPQqg+Fc5IZ9nWok82RI4fmdiQswXt44MCBEk/wRvcbGxsrsf6JtTokQ/Xs2VMcOHDA0OeRzavXUBz1vUbHcePGDdm2bVsIvHCGzz//XO1I06BBA9GkSROZkJDg0A134cKFUs9uT88CD6Jqy3wC3ZDCw8OlXis7cPjwYVmzZk1pq0G7NzLSRs4BsrCxdg3nMqP7xO81YsQIiZphHJ9ffvlF9SnGw5RfiOoTT/z/YQ//+GNlzvx5IkfOnMIfTB3WblhPUwcfpXz58grEM6vkJJgcuBKja4iwQITDkx7IXEYWM8pYQkNDZVxcHPx3YcgvM2W6Sqzp4YZeokQJ2adPH9WbN3NYMzg42NDTv56ZP2Z5EElbbfTA2rVrZbVq1Zy2XLx58+ZfamZRCoUZ/ksvvSS7desmv/jiC3g9647n4MGDsmvXrrJXr16a78EDV+vWrXWTy4yEaufOnavaAfbo0UPCsQvGErt27YKAyqioKFmrVi11NuZLM9THZ6vNmzcXtuwEP/zwQ6xDy0GDBsl169ZJ2F1mPGxcv35dPWY4l0NCQiQ6EU2YMOEvWecXLlxQ1/B///13u4RVsXXxDfpogNyyebPwJvA0t3Pvnr8Iy8WLF2Xfnr3wr7Ai7YODUTZDMfUg6enpEslgWmCdNDIyUrF3n6j/zHyeIsGiY8eOdh9bRVGkXhs6ZJ4a3Vfbtm2lXn9VV9b5IUxZoIC2feb+/fsRatXdD2ZsXbt2Vduu4YYIpx6EqyHkqBldu3atXWKKhgbvv/9+lmMaPHiwNBKahyjmy5dPHRuMCrDGB79ahKyNmDNgPXD58uW6xwwPExBMZ+tS7SUsLAyzbJvnU1RUlNQzPUHDd0ebiD/+OyBpSW/W7yowY924caPhMWf31fDv46CL/KatW+TQwUPETp0+kb7IgEGDYOxAQbUAmG2gK01GOBLG+CVLlnT5sbU323X9+vVKo0aNpNGekY6CdnPIcNVbO3znnXeUli1bSnjt6s1EIHTuXofGjOaLL74w9F4IJ2bSemumWiBaYSTRKH/+/ApC6x07dhSuBuUq9tRTm0n+/PnhbCXxUJU5IuIOfvrpJzU8nDdvXsW64V+NjMUcOXMiFKxEjtRuBu1rTJ0xnYJqMbAeXqpUKfXlDkF1lF27dil64UlnwSwuMTFRVKtWzebfDCHTS0hxpMYRa7z2Mm/ePLd7DxcpUkSsW7cOM1xD5wIyxF29XICwM7rm+BIlSpRQUNer17PXWZCpjcxxo4Lqu6KqUwAMwnr1QhKTzcbE3szTTz+tmjq0bNXKa266xPrExsaiH6x6o3clCNWhG4/RRtKYiWDWXK5cOae/u0KFCgjf6SZkaREZGakmxrjLd7ZGjRpqW7gqVarYdZ1HR0crWDt15G96HITRN2zYoMDqz9coVKgQfJiVqKgotVG5K8EDJpywihQpYtex8flEJS2qVquqbN2RJCrpuMZ4K1jHW712LU0diMM4Y3YQEhKiwGIvOjraaXFFg26sV+7fv9/uWTlmIlgfhW2jI111EM5EwhREq3Dhwg5dS88++6wybtw45eeff1bXqV3lh4y8EPwuycnJSrFixRwaW79+/RTc9FHf7Ah4YIF71dKlS33+PvPpp58q8E1GIpcznXAymllg3R8PmDj+9n7eJ0U1W7a/r6lqWYWt27hBCe3aVfgKBQoWUEtmKlSs4PMnOvFdcuXKhRCjkpKSoiCBCU/tRsOxuFmHh4eLPXv2IFlI0UoAMroGPWPGDAUJKQh56vm/Zk6GQuN3JCrNnz9feeGFF5y+lhCaReLXyZMn1bFg/ROdZbAWagQYvWPGjN9l7969WKdz6nfJbIOJsD0ePiAoZcqU0X0/ZnOoG4agnzlzRgkKCrLMfaZUqVLKvHnzFCSGoV8tssSNmIXggQ0Rg9GjR6vnzM6dO5U6deo4/Lv4ZPZvlTffFGvWrbXrj962dauMGDrMIz0DHeW1gACxLH4Fa1CJ14IaURTYwxwe5QcolcFNCV1iXnnlFTUT1571J0f45Zdf1DFcv34d5Q7/Ewt0MSldurQaEhQe/k2QzHLjxg38t3qPeeKJJ9QZE6JO6MZjb3jXGVCbi3IQZNoi+xh1wjg+qP+FCAs/4/r16/LHH39Uk9twziIZC6Fu2EWiTKxixYou/U18UlSrVqsmViWssfuHuHD+vOzZvYd6MXqjqcOS5cvUcJPZYyGEEOIYPhn+xVOgI7wWEKBsSdou6ugUl5tBg4YNVVMHCiohhPg2Pimq2bM7JqoA6yuLly1VUPvpLaYO8xfEUkwJIcQCWDpRSQ/Ufi5etlRdazCLIcOG0iWJEEIshF+Ffx+nTt26ajjYVsacu0wd+oWHU1AJIcRC+KSoZjNQp2oU1K9tSdqutGqjbWTtalOHpStW0NSBEEIsiE+K6hMuCP8+zpRp05Toz8YLd/eBhalDrdq1KKiEEGJBsvn7TDUznUJCFDT/hgGDq8E+N9DUgRBCLI1Piqo7ZqoZlK9QQdm6fbuoUbOmS00dNm7eLIo6aEdGCCHEN/BJUYWnpzvJnSePsnxlvNKnn+2GwLaoVr26WLdxA12SCCHED/BJUXVX+PdxhkVEKLGLFqGlnMOmDivXrKapAyGE+Ak+KaruDP8+Tv1366P5ud29HTuHhtLUgRBC/AyfFFVPzVQzt6CCsL7XuLGh9w+LiBBjxkVTUAkhxM9w7+KkBWaqGeTImVOZM3+eiFu4UH42Trv0ZtacOaJJs6ZeIajDhgyRN67fEN7G0OHD0EDAK34jQggR/i6q2VzkqOQIPXr2VCpUfEOG9+2rtlXKIEeOHGL+ggVeVYP6/clTAs2VvY179+6bPQTLkpKSImfOnCmOHDmitrlCO7aWLVuiWbfXnJeEWJns/mao7wqqVquqbN2RJD/o01ecPHFCNXVYvjJelClbljcuYhoHDx6U7dq1E7dv3/7f/ztz5oxISkoSK1eulFu2bFEbSpg6SIuQnp4u9Rqre3Y0xJuwuTiZLVs2SxrqO0u+fPmUdRs3KP3Cw8X6xEQKKjEVNMru2LHjXwQ1M4cOHRIDBw70+LisSFRUlETzca0XjoXZYyTmYVMx0TXe23jCw4lKegwZNlQp9ipNHYi5rF+/XqSmpuq+Z/Xq1eLhw4e84RPiRrL7c5caQmwRHR3ttAgh2pMzZ07x7LPPihdffFEtzypZsqRLQ7FG1s7/+OMPcevWLVG8eHFXfS0hxAqi6g3hX+If62ajR492y74htIGBgbJu3bqiRYsWol69ek4JLNb1bfHkk0/C2cuZryGE2MB74qg+Gv4lxBGwrPLtt9+K6dOni3feeUeULl1axsTEODwrbtq0qc38hyZNmjCJhhA345PqxJkqsRrnz59XE4lKliyJLF27xbV8+fLKsGHDNLdjhvr55587O0xCiBVF1eySGkLcxcWLF9Vw8MCBA+0W1okTJyqzZ88WhQsX/sv/b9CgAcptREBAAGephLgZ31xTZaISsTgxMTHizp07cvny5XYJYXh4uBIeHi5++OEHmZ6eLooVKyby589PMSXEQ/ikqJphU0iIp1mxYoUoWLCgnDx5st2iWJZ104SYgm+KKhOViBdQunRpsW7dOpvv+9e//iV+/fVXce/ePdXhCAlKu3btEo8ePbL5WayD1q9fXzZu3JgiSYgVRFVRvOtaRsJFjVq1zB4GIeKpp55SE4Ts+UybNm3Uf2/fvi0XLFggJkyYoHr06hERESEaG+yQRAgxF5tTPim9x4ClarWqYtvOHaJMmTLepfSE2MlLL72kREZGKidOnECoVve933//vVi1apX3XIiEEN8P//bo2VOM+GQkxZRYipIlSypJSUmyZs2a4vr165rvW7VqlejUqZPuvr7++muJ0LIWH3zwQZbXz6ZNm6Ted8OBqUmTJg5fe1u3bpVXr17V3F69enVRpUoVh/b/+++/yy+//FKcOnVK/Pjjj2qIHTP/7Nmzi1y5colChQqJcuXKiapVq4o33niD9w/idrxeVHPkzCmmTJuKBuG8IIglKVq0qDJ27FgZFham+Z6dO3eqvr05c+bUvA62b98uxo4dq7mPkJAQmTt3biWrJZXg4GB17VcrzL13715Zu3Ztu6/Bffv2ydatW4t///vfmuvSR48etXe3Yvfu3TI2Nlbs2LEDzleGPgODDfydyI5mRjRxF16d8QOP1E1bt1BQieXp0aOHki9fPs3tELyTJ0+65btr1qypYG1X77vff/99dR3Ynv2mpqZKfE5LUOGHvHLlSlgsGr6+jx49ilm9bNSokZokZlRQAWay0dHRolSpUmLEiBEMpxP/EtX3GjdWBbVEiRIUVOIXQCj0OHv2rNu+e/DgwUrbtm11TSn0ZtJZ0a1bN3Ht2jXdWtzKlSsbvr4jIiJknTp1xFdffSWcAUKMh4jy5cvLU6dOUVyJ9UU1IjJSzJk/T8mhE+oixGrY6h6D9UJ3gmzkgIAAze2bN29GiY802t0HIWstunfvLnr27KkYbWzQsmVL1Otqznod4R//+Ifqu7xnzx4KK7GmqObNm1esSkgQvfr0ppgSvwPnvx72hDodIU+ePAoMJ3LkyKH5nk8++UQkJyfritD+/ful3tpu5cqVBewUjdKhQwdV0N0BHlRQ5nTs2DEKK7FWolKlwEAx94v5Il++fBRU4pfYqlfVEztXUbVqVWXy5Mmyf//+muurXbt2VTONX3zxxb9dq7du3dJdR82TJ4+6jqqXcJWZDz/8UCIByxaBgYHqrLN8+fJqz9p//vOfIi0tDeNUjTbQR1bvd0fo+7vvvpMvv/wy7z/E90W1c5cuYkz0WJ7MxK/RK2sx2jPVFXz44YcKZqMo49FqiN6zZ0+xcePGLNdRU1JSNPf9xRdfIAvX0LW+a9cuOWfOHN33oFRm4sSJcJ3Kcp/I9EXWNELbUVFRqrNVVmDtd/DgwWL58uVGhkaI94Z/p0ybRkEl5P/KT3S3I2vVU8yfPx8mK5rbExMTxdSpU/8SMh0/frxEiYsWgwYNEu3btzd8rX/00Ue62/v06YOwraIlqBlgVjxgwAAFs9bXX39d830IfR86dIhhYOKboor2VFuStotWbVpTUInfg3rOCxcu2AxxeooXXnhBiY+PR1NzzfeMGDECmbiqCB04cECOGTNG871169YV06ZNM3ytL1myRKIERgvMiOfPn2/XvQMzZISSixQpovmeadOm2bNLQrxDVOvUrasKKu0GCfk/hg8frru9du3aSGTy6PUSGBio6IkM1le7dOmCUh8Jkfvzzz+zfF+BAgXUWaA9zJ07V3fGPnPmTOEIxYsXV1DKo8WmTZvE5cuXOVslviOqAwYNEouXLVXwJOzp7ybEG2nVqpWuvWBGBqwZ9OrVS0FikhZYX33zzTfFlStXstwOu8ClS5eKV155xfD1fuHCBXn8+HHdBgPPP/+8w/ePNm3aKDVq1NDcvmXLFkd3TYjnRPWFF16AmIr+Az6imBIihLp+V6lSJYnZkR7wr0VGrVkgWahixYqa2x8+fKi5bdSoUTC1sOua16tvxX0kJCREOIve77l3716n90/8F49k/yLhYf7CBVhHpaASvwXlJuin+s0336gWe/jXCCNHjnRqZuYszz33HNZXZa1atcSDBw8Mf65p06Zi9OjRdo9bz44R5vtGy3H0gDOTFqdPn3Z298SPcbuotmrTGhm+FFNiOWAb+PLLL9tcf8Paoz1ilJnmzZtrdpfxJOgbGxMTI+GEZNS3e8mSJQ5917lz5zS3oRtN5cqVnV7z1GtpCUvG3377TZr5IEN8F7eK6rjPPhMdQzrxxCSWBAYHt2/fdtv+4TwUFxcnvIVu3bopR44ckQsXLtR93zPPPKMmJjlqpHDnzh3NbTB0wMvd3L17F9EBt38PsR5uWVMtULCASNyymYJKiIMg1Iq1RTQzF17ElClTbIpNs2bNRI0aNRwet5ZBgydxNLJAiMtFtUbNmmLr9u2ifIUKXnUzIMQXQLbssGHDxOHDhxVvE1QAT19bdorr168XGzZscDhE+/TTTwuz+c9//mP2EIiP4lJR7fvBB2L5yngld548XnczIMSbyZYtW4b/rJg8ebJXXj/r16+XRs0RevfurZbGOPI9uXLlEmajZ3pBiNvXVHECTouJEfXf1bcLI4T8VUixbtqiRQvRuXNnr+4dfP78eQlbQHvWRVH6oldvque2hoSkrHjrrbfE9OnThbspWbKk1x4LYnFRfS0gQHyxIFYULVaMJyHxK1AzWbNmTUPiiQ4zOXPmxBqp2jcVrkAoD/G0S5KjQCD1EoiyAiVDvXv3lrGxsXb9jRUqVBBanWnQA/Wtt97yid+M+CdOiWqzoCARM3sWT3DilxQrVkwkJSVZ/vwPCwvTdXzCw4VWYg+6w9SoUQOlOIZ/JzxsaIH13EWLFsmwsDDL/+7Ez9ZUR0VFUVAJsTgLFy6UemU9DRo0gJm+7hrkgAEDEM41vL763nvvqUKtxaRJk9Q6UqP7I8SrZ6r58uVTm4lXCgykoHo5k6dNFY/++EN4G6VLlzZ7CMQAaNqNdm169onLli0TBQsWVNAGTmvNFbNLhI/R0caI5zcck1q3bi3hGZwV6OaD70Kzc2c4ceKEhNk/xu/UjghxVFSrVqsq5syf7zPrQP7OG2+8weNEHOL+/fsSyVPp6ema68RwTMoQpN69eysHDx6UWkL3ww8/qBnBq1evNvT9Q4cOVRuGa5W2oIG6oigyPj7eoXMcJT9whypbtqzYvXu3hBWjI/shxOHwb/cePcSqhASFgkqI9enZs6euXSD8iBs2bKg83q5Nrwn4mjVrxIwZM6RRW0S97jgAAl6uXDmZlJRkOBR87tw5GRISItu3b6+uAx89elSEhoYa/Tghxjww9V4fD4+QO5KSpK338cWX1V7/XbfTfFWoUMGrrovRo0frjvfevXuGxjt58mTd/dSvX19zP8eOHZPPPPOM5mefeuopefjwYUPjuHPnjixWrJjuWDJe5cuXR5N0uXPnTol+qL/++qtMT0+XFy9elMnJyXLKlCmyUaNG8sknn8zy8+Hh4dLTvzNf0pIv0wfAF1/e+vJHUT1w4ICm8OBVsGBBee3aNd39TJ8+XXccxYsXl2lpaYZ+O7THe+655wwJq7OvSZMmGRoTRZUvqfPyeJNyQoh3kpqaKrt06SL+/PNPzXVUZALbauE4cOBAJBppbr906ZLh/rB16tRRsH6KOl93o9dyjhCjUFQJISoQ1JSUFM3tH3/8sWjcuLGhnArUp6L9mxZJSUkC4Voj+woKClJ27dqlOi25C6yrrly5kvkixGkoqoQQMWLECLlnzx7N7fXq1RPjx483LDovvviiguzgJ598UvM948aNE7t27TIkrLVr11aOHTumlua4EnTcgZ/x8uXLKajEJVBUCfFztmzZgvVEze358+dX61HtBaHbMWPG6PajRRg4JSXFkLAWKlRIQQnN/v371ebtCEc7Cnq+hoWFqR7DgwYNoqASl0FRJcSPQXYsxEWrHhTCtWjRIvHKK684JDyRkZFK48aNNbenpqbaXdJSr149ZfPmzcrZs2fFxIkTRf369VVfZVvkzp0b4Wsxc+ZM/N1wi1KKFy9OQSUuRUG2EiGE+DropPPzzz+rTc5hWoF7GxKc4AL36quvioCAAAoocTsUVUIIIcRFMPxLCCGEuAiKKiGEEOIiKKqEEEKIi6CoEkIIIS6CokoIIYS4CIoqIYQQ4iIoqoQQQohwDf8PUYIw5xDcbRwAAAAASUVORK5CYII=" alt="Measure Pixel" width="469" height="186">
+    </a>
+    <nav class="primary">
+      <a href="#packages">The 3 Packages</a>
+      <a href="#deliverables">Deliverables</a>
+      <a href="#investment">Investment</a>
+    </nav>
+    <div style="display:flex; align-items:center; gap:26px;">
+      <div class="header-tag">PREPARED FOR<br>MOKSH INTERIO</div>
+      <a class="cta-btn" href="#investment">See investment</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap proposal-strip">
+  <div class="eyebrow">Growth Proposal — Prepared for Praveen Bafna, Founder, Moksh Interio · Chennai &amp; Bangalore</div>
+</div>
+
+<main id="top">
+  <!-- ============ THE 3 PACKAGES ============ -->
+  <section class="section band" id="packages" style="padding-top:44px;">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Moksh Interio — complete growth packages</div>
+        <h2>Compare all three, side by side.</h2>
+        <p>Branding, website and social media — bundled into one package. Pick a tier.</p>
+      </div>
+
+      <div class="table-wrap">
+        <table class="pricing">
+          <thead>
+            <tr>
+              <th class="rowlabel"></th>
+              <th class="col-head featured">
+                <div class="pkg-num">1</div>
+                <div class="pkg-eyebrow">PACKAGE 1</div>
+                <div class="pkg-name">Brand Launch</div>
+                <div class="pkg-badge">BUILT FOR MOKSH INTERIO</div>
+              </th>
+              <th class="col-head">
+                <div class="pkg-num">2</div>
+                <div class="pkg-eyebrow">PACKAGE 2</div>
+                <div class="pkg-name">Market Entry</div>
+                <div class="pkg-tag-muted">Room to grow into</div>
+              </th>
+              <th class="col-head">
+                <div class="pkg-num">3</div>
+                <div class="pkg-eyebrow">PACKAGE 3</div>
+                <div class="pkg-name">Authority &amp; Growth</div>
+                <div class="pkg-tag-muted">Full-scale option</div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="rowlabel">Positioning</td>
+              <td class="desc-cell featured">A professional start to establish your presence.</td>
+              <td class="desc-cell">A complete foundation to establish your brand.</td>
+              <td class="desc-cell">A high-performance system built for scale.</td>
+            </tr>
+            <tr>
+              <td class="rowlabel">Branding</td>
+              <td class="price-cell featured">₹1,00,000</td>
+              <td class="price-cell">₹1,50,000</td>
+              <td class="price-cell">₹2,50,000</td>
+            </tr>
+            <tr>
+              <td class="rowlabel">Website</td>
+              <td class="price-cell featured">₹75,000</td>
+              <td class="price-cell">₹1,25,000</td>
+              <td class="price-cell">₹2,00,000</td>
+            </tr>
+            <tr>
+              <td class="rowlabel">Social Media / Month</td>
+              <td class="price-cell featured">₹80,000</td>
+              <td class="price-cell">₹90,000</td>
+              <td class="price-cell">₹1,20,000</td>
+            </tr>
+            <tr class="subtotal">
+              <td class="rowlabel">One-Time Investment</td>
+              <td class="price-cell featured">₹1,75,000</td>
+              <td class="price-cell">₹2,75,000</td>
+              <td class="price-cell">₹4,50,000</td>
+            </tr>
+            <tr class="subtotal">
+              <td class="rowlabel">Monthly Investment</td>
+              <td class="price-cell featured">₹80,000</td>
+              <td class="price-cell">₹90,000</td>
+              <td class="price-cell">₹1,20,000</td>
+            </tr>
+            <tr class="grand">
+              <td class="rowlabel">First-Month Total</td>
+              <td class="price-cell featured">₹2,55,000</td>
+              <td class="price-cell">₹3,65,000</td>
+              <td class="price-cell">₹5,70,000</td>
+            </tr>
+            <tr>
+              <td class="rowlabel">Ideal for</td>
+              <td class="desc-cell featured">New brands</td>
+              <td class="desc-cell">Growing businesses</td>
+              <td class="desc-cell">Established &amp; ambitious brands</td>
+            </tr>
+            <tr class="cta">
+              <td class="rowlabel"></td>
+              <td class="featured"><a class="cta-btn small" href="#investment">Start with Package 1</a></td>
+              <td><a class="cta-btn small dark" href="#investment">Choose Package 2</a></td>
+              <td><a class="cta-btn small dark" href="#investment">Choose Package 3</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Phone-width stand-in: same data as the table, stacked as cards -->
+      <div class="mobile-pricing">
+        <div class="pkg-block featured">
+          <div class="pkg-block-head">
+            <div class="pkg-block-id">
+              <div class="pkg-num">1</div>
+              <div>
+                <div class="pkg-eyebrow">PACKAGE 1</div>
+                <h3>Brand Launch</h3>
+                <p class="pkg-block-desc">A professional start to establish your presence.</p>
+                <div class="pkg-badge">BUILT FOR MOKSH INTERIO</div>
+              </div>
+            </div>
+          </div>
+          <div class="mp-rows">
+            <div class="mp-row"><span>Branding</span><b>₹1,00,000</b></div>
+            <div class="mp-row"><span>Website</span><b>₹75,000</b></div>
+            <div class="mp-row"><span>Social Media / Month</span><b>₹80,000</b></div>
+            <div class="mp-row subtotal"><span>One-Time Investment</span><b>₹1,75,000</b></div>
+            <div class="mp-row subtotal"><span>Monthly Investment</span><b>₹80,000</b></div>
+          </div>
+          <div class="pkg-block-total" style="text-align:center; margin-top:14px;">
+            <span>FIRST-MONTH TOTAL</span>
+            <b>₹2,55,000</b>
+          </div>
+          <div class="mp-ideal">IDEAL FOR NEW BRANDS</div>
+          <a class="cta-btn mp-cta" href="#investment">Start with Package 1</a>
+        </div>
+
+        <div class="pkg-block">
+          <div class="pkg-block-head">
+            <div class="pkg-block-id">
+              <div class="pkg-num">2</div>
+              <div>
+                <div class="pkg-eyebrow">PACKAGE 2</div>
+                <h3>Market Entry</h3>
+                <p class="pkg-block-desc">A complete foundation to establish your brand.</p>
+                <div class="pkg-tag-muted">Room to grow into</div>
+              </div>
+            </div>
+          </div>
+          <div class="mp-rows">
+            <div class="mp-row"><span>Branding</span><b>₹1,50,000</b></div>
+            <div class="mp-row"><span>Website</span><b>₹1,25,000</b></div>
+            <div class="mp-row"><span>Social Media / Month</span><b>₹90,000</b></div>
+            <div class="mp-row subtotal"><span>One-Time Investment</span><b>₹2,75,000</b></div>
+            <div class="mp-row subtotal"><span>Monthly Investment</span><b>₹90,000</b></div>
+          </div>
+          <div class="pkg-block-total" style="text-align:center; margin-top:14px;">
+            <span>FIRST-MONTH TOTAL</span>
+            <b>₹3,65,000</b>
+          </div>
+          <div class="mp-ideal">IDEAL FOR GROWING BUSINESSES</div>
+          <a class="cta-btn dark mp-cta" href="#investment">Choose Package 2</a>
+        </div>
+
+        <div class="pkg-block">
+          <div class="pkg-block-head">
+            <div class="pkg-block-id">
+              <div class="pkg-num">3</div>
+              <div>
+                <div class="pkg-eyebrow">PACKAGE 3</div>
+                <h3>Authority &amp; Growth</h3>
+                <p class="pkg-block-desc">A high-performance system built for scale.</p>
+                <div class="pkg-tag-muted">Full-scale option</div>
+              </div>
+            </div>
+          </div>
+          <div class="mp-rows">
+            <div class="mp-row"><span>Branding</span><b>₹2,50,000</b></div>
+            <div class="mp-row"><span>Website</span><b>₹2,00,000</b></div>
+            <div class="mp-row"><span>Social Media / Month</span><b>₹1,20,000</b></div>
+            <div class="mp-row subtotal"><span>One-Time Investment</span><b>₹4,50,000</b></div>
+            <div class="mp-row subtotal"><span>Monthly Investment</span><b>₹1,20,000</b></div>
+          </div>
+          <div class="pkg-block-total" style="text-align:center; margin-top:14px;">
+            <span>FIRST-MONTH TOTAL</span>
+            <b>₹5,70,000</b>
+          </div>
+          <div class="mp-ideal">IDEAL FOR ESTABLISHED &amp; AMBITIOUS BRANDS</div>
+          <a class="cta-btn dark mp-cta" href="#investment">Choose Package 3</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ NEXT STEPS ============ -->
+  <section class="wrap" style="text-align:center; padding-block:40px;">
+    <div class="hero-actions" style="justify-content:center;">
+      <a class="cta-btn" href="#investment">See the investment</a>
+      <a class="ghost-link" href="#deliverables">See every deliverable →</a>
+    </div>
+  </section>
+
+  <!-- ============ FULL DELIVERABLE BREAKDOWN ============ -->
+  <section class="section" id="deliverables">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Full scope, package by package</div>
+        <h2>Every deliverable, spelled out.</h2>
+        <p>What's inside each package, starting with our recommendation.</p>
+      </div>
+
+      <!-- Package 1 -->
+      <div class="pkg-block featured">
+        <div class="pkg-block-head">
+          <div class="pkg-block-id">
+            <div class="pkg-num">1</div>
+            <div>
+              <div class="pkg-eyebrow">PACKAGE 1</div>
+              <h3>Brand Launch</h3>
+              <div class="pkg-badge">BUILT FOR MOKSH INTERIO</div>
+            </div>
+          </div>
+          <div class="pkg-block-total">
+            <b>₹2,55,000</b>
+            <span>FIRST-MONTH TOTAL</span>
+          </div>
+        </div>
+
+        <div class="deliver-grid">
+          <div>
+            <div class="deliver-col-head">
+              <h4><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/></svg>Branding</h4>
+              <span class="deliver-price">₹1,00,000</span>
+            </div>
+            <ul class="flist">
+              <li>Core brand positioning</li>
+              <li>Primary logo</li>
+              <li>Colour palette &amp; typography</li>
+              <li>Brand guidelines (essential)</li>
+            </ul>
+          </div>
+          <div>
+            <div class="deliver-col-head">
+              <h4><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Website</h4>
+              <span class="deliver-price">₹75,000</span>
+            </div>
+            <ul class="flist">
+              <li>Up to 5 pages</li>
+              <li>Responsive &amp; mobile optimised</li>
+              <li>Lead generation sections</li>
+              <li>WhatsApp integration</li>
+              <li>15 days post-launch support</li>
+            </ul>
+          </div>
+          <div>
+            <div class="deliver-col-head">
+              <h4><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>Social Media</h4>
+              <span class="deliver-price">₹80,000/mo</span>
+            </div>
+            <ul class="flist">
+              <li>8 content pieces (6 reels + 2 posts)</li>
+              <li>Content strategy &amp; calendar</li>
+              <li>4–5 hour production shoot</li>
+              <li>DM &amp; comment management</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pkg-note">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>
+          <span>Everything needed to launch — nothing more.</span>
+        </div>
+      </div>
+
+      <!-- Package 2 -->
+      <div class="pkg-block">
+        <div class="pkg-block-head">
+          <div class="pkg-block-id">
+            <div class="pkg-num">2</div>
+            <div>
+              <div class="pkg-eyebrow">PACKAGE 2</div>
+              <h3>Market Entry</h3>
+            </div>
+          </div>
+          <div class="pkg-block-total">
+            <b>₹3,65,000</b>
+            <span>FIRST-MONTH TOTAL</span>
+          </div>
+        </div>
+
+        <div class="deliver-grid">
+          <div>
+            <div class="deliver-col-head">
+              <h4><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/></svg>Branding</h4>
+              <span class="deliver-price">₹1,50,000</span>
+            </div>
+            <ul class="flist">
+              <li>Focused brand positioning</li>
+              <li>Primary logo + icon</li>
+              <li>Visual style elements</li>
+              <li>Brand voice &amp; tone guide</li>
+              <li>3 social media templates</li>
+              <li>Implementation guidance</li>
+            </ul>
+          </div>
+          <div>
+            <div class="deliver-col-head">
+              <h4><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Website</h4>
+              <span class="deliver-price">₹1,25,000</span>
+            </div>
+            <ul class="flist">
+              <li>Up to 8 pages</li>
+              <li>Enhanced UI/UX design</li>
+              <li>Essential on-page SEO structure</li>
+              <li>Lead generation sections</li>
+              <li>1 month post-launch support</li>
+            </ul>
+          </div>
+          <div>
+            <div class="deliver-col-head">
+              <h4><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>Social Media</h4>
+              <span class="deliver-price">₹90,000/mo</span>
+            </div>
+            <ul class="flist">
+              <li>12 content pieces (8 reels + 4 posts)</li>
+              <li>Content strategy &amp; calendar</li>
+              <li>5–6 hour production shoot</li>
+              <li>Monthly performance report</li>
+              <li>DM &amp; comment automations</li>
+              <li>1 community repost/month</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Package 3 -->
+      <div class="pkg-block">
+        <div class="pkg-block-head">
+          <div class="pkg-block-id">
+            <div class="pkg-num">3</div>
+            <div>
+              <div class="pkg-eyebrow">PACKAGE 3</div>
+              <h3>Authority &amp; Growth</h3>
+            </div>
+          </div>
+          <div class="pkg-block-total">
+            <b>₹5,70,000</b>
+            <span>FIRST-MONTH TOTAL</span>
+          </div>
+        </div>
+
+        <div class="deliver-grid">
+          <div>
+            <div class="deliver-col-head">
+              <h4><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/></svg>Branding</h4>
+              <span class="deliver-price">₹2,50,000</span>
+            </div>
+            <ul class="flist">
+              <li>Comprehensive brand positioning</li>
+              <li>Primary + secondary + icon logo system</li>
+              <li>Imagery guidelines &amp; complete templates</li>
+              <li>Business cards, letterhead, ID, T-shirt, envelope</li>
+              <li>Full brand guidelines PDF</li>
+              <li>Implementation guidance</li>
+            </ul>
+          </div>
+          <div>
+            <div class="deliver-col-head">
+              <h4><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Website</h4>
+              <span class="deliver-price">₹2,00,000</span>
+            </div>
+            <ul class="flist">
+              <li>Up to 15 pages</li>
+              <li>Premium UI/UX design</li>
+              <li>Advanced on-page SEO structure</li>
+              <li>Analytics, GTM &amp; Search Console</li>
+              <li>Blog &amp; service page architecture</li>
+              <li>Testimonials &amp; lead capture optimisation</li>
+              <li>1 month post-launch support</li>
+            </ul>
+          </div>
+          <div>
+            <div class="deliver-col-head">
+              <h4><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>Social Media</h4>
+              <span class="deliver-price">₹1,20,000/mo</span>
+            </div>
+            <ul class="flist">
+              <li>16 content pieces (12 reels + 4 posts)</li>
+              <li>7–8 hour production shoot</li>
+              <li>Monthly performance report</li>
+              <li>3 community reposts/month</li>
+              <li>DM &amp; comment automations</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OPTIONAL ADD-ON ============ -->
+  <section class="section" id="addon">
+    <div class="wrap">
+      <div class="addon">
+        <div class="addon-left">
+          <div class="addon-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="15" height="14" rx="2"/><path d="M17 10l5-3v10l-5-3"/></svg>
+          </div>
+          <div>
+            <span class="optional-pill">OPTIONAL ADD-ON, ANY PACKAGE</span>
+            <h3>High-End Video Production</h3>
+            <p>A cinematic brand film, plus a manufacturing unit walkthrough. Add to any package.</p>
+          </div>
+        </div>
+        <div class="addon-price">
+          <b>₹3,00,000</b>
+          <span>ONE-TIME</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="strip">
+    <div class="wrap">
+      <div class="strip-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M18 9l-5 5-4-4-4 4"/></svg>
+        <span>STRATEGIC APPROACH</span>
+      </div>
+      <div class="strip-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20M9 3l3 6-3 12M15 3l-3 6 3 12"/></svg>
+        <span>PREMIUM DESIGN QUALITY</span>
+      </div>
+      <div class="strip-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="7" r="4"/><path d="M2 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2"/><path d="M17 3.13a4 4 0 0 1 0 7.75M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
+        <span>BUSINESS FOCUSED</span>
+      </div>
+      <div class="strip-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        <span>MEASURABLE RESULTS</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ INVESTMENT ============ -->
+  <section class="section band" id="investment">
+    <div class="wrap">
+      <div class="section-head" style="text-align:center; margin-inline:auto;">
+        <div class="eyebrow">The conclusion</div>
+        <h2>This is an easy yes, not a marketing cost.</h2>
+        <p style="margin-inline:auto;">An asset Moksh Interio keeps — not a recurring cost.</p>
+      </div>
+
+      <div class="summary">
+        <div class="eyebrow">Built for Moksh Interio</div>
+        <h3>Package 1 — Brand Launch</h3>
+        <div class="rec-badge">SCOPED FOR YOU, AFTER YOUR ORIGINAL QUOTE</div>
+
+        <div class="save-strip">
+          <span>vs. what you originally saw — ₹5,40,000</span>
+          <b>You save ₹2,85,000 to start</b>
+        </div>
+
+        <div class="line-item">
+          <div>
+            <div class="li-name">Branding</div>
+            <div class="li-sub">One-time</div>
+          </div>
+          <div class="li-amt">₹1,00,000</div>
+        </div>
+        <div class="line-item">
+          <div>
+            <div class="li-name">Website</div>
+            <div class="li-sub">One-time</div>
+          </div>
+          <div class="li-amt">₹75,000</div>
+        </div>
+        <div class="line-item">
+          <div>
+            <div class="li-name">Social Media</div>
+            <div class="li-sub">Per month, from month one</div>
+          </div>
+          <div class="li-amt">₹80,000</div>
+        </div>
+
+        <div class="summary-divider"></div>
+
+        <div class="total-row">
+          <span>One-time investment</span>
+          <b>₹1,75,000</b>
+        </div>
+        <div class="total-row">
+          <span>Monthly investment</span>
+          <b>₹80,000</b>
+        </div>
+        <div class="total-row grand">
+          <span>First-month total</span>
+          <b>₹2,55,000</b>
+        </div>
+
+        <p class="fineprint">Excludes the optional ₹3,00,000 video add-on. Not locked in — move up anytime.</p>
+        <div class="cta-row">
+          <a class="cta-btn" href="mailto:Aravind@measurepixel.com?subject=Moksh%20Interio%20—%20Package%201%20approval">Start with Package 1</a>
+          <a class="cta-outline" href="#packages">Compare all 3 packages</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap final-cta" id="contact">
+    <div>
+      <h2>Let's build Moksh Interio's next 30 years.</h2>
+      <p>Prepared for Praveen Bafna — reply anytime, or reach Aravind directly at Aravind@measurepixel.com.</p>
+    </div>
+    <div class="btn-row">
+      <a class="arrow-btn" href="mailto:Aravind@measurepixel.com" aria-label="Get in touch">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-left">© 2026 Measure Pixel — Growth proposal prepared for Moksh Interio.</div>
+    <div class="f-right">
+      <a href="#packages">The 3 Packages</a>
+      <a href="#investment">Investment</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
