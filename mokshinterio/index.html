@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Measure Pixel growth proposal for Moksh Interio: Google Ads first, with costs, service analysis and year-one economics.">
+<meta name="description" content="Measure Pixel growth proposal for Moksh Interio: a 12-month growth system led by Google Ads, with a staged investment, service analysis and year-one economics.">
 <meta name="robots" content="noindex, nofollow">
 <title>Moksh Interio Proposal</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap">
@@ -71,7 +71,7 @@ a{color:var(--accent)}
 /* hero */
 .hero{padding-block:clamp(56px,9vw,112px) clamp(40px,6vw,72px)}
 .hero h1{margin-block:18px 20px}
-.hero__sub{font-size:clamp(20px,2.4vw,30px);color:var(--fg);font-weight:600;letter-spacing:-0.025em;max-width:30ch}
+.hero__sub{font-size:clamp(20px,2.4vw,30px);color:var(--fg);font-weight:600;letter-spacing:-0.025em;max-width:34ch}
 
 /* sections */
 section{border-top:1px solid var(--line)}
@@ -98,6 +98,15 @@ section{border-top:1px solid var(--line)}
 .rows span:last-child{font-family:var(--mono);font-weight:500;white-space:nowrap}
 .stack{display:flex;flex-direction:column;gap:clamp(20px,2.5vw,28px)}
 .perf{margin-top:28px;font-size:15px;color:var(--muted);max-width:76ch}
+.perf--fine{margin-top:12px;font-size:13px;opacity:.85}
+.rows .grp{font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);padding:18px 0 10px;border-bottom:none}
+.rows .grp:first-child{padding-top:14px}
+.rows .grp span{font-family:var(--display);font-weight:700;white-space:normal}
+.rows .grp span.amt{font-family:var(--mono);font-size:14px;color:var(--fg);white-space:nowrap}
+.rows .grp em{font-style:normal;color:var(--accent)}
+.rows + .note{margin-top:16px}
+.eq{margin-top:22px;font-family:var(--mono);font-size:13.5px;line-height:1.8;color:var(--muted)}
+.eq b{color:var(--accent);font-weight:700;white-space:nowrap}
 
 /* three-up */
 .three{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,2.6vw,40px)}
@@ -107,6 +116,12 @@ section{border-top:1px solid var(--line)}
 .phase h3{margin-bottom:8px}
 .phase .label{margin-bottom:10px}
 .phase p{font-size:15px;color:var(--muted)}
+
+/* growth system */
+.flow{list-style:none;margin:clamp(32px,4vw,48px) 0 0;padding:24px 0 0;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:6px 0}
+.flow li{display:flex;align-items:center;font-family:var(--mono);font-weight:500;font-size:clamp(14px,1.5vw,18px);color:var(--fg)}
+.flow li:not(:last-child)::after{content:"\2192";color:var(--accent);margin-inline:12px}
+.flow li:last-child{color:var(--accent);font-weight:700}
 
 /* rollout */
 .steps{display:flex;flex-direction:column}
@@ -193,6 +208,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
     </div>
     <nav class="navlinks" aria-label="Sections">
       <a href="#costs">Costs</a>
+      <a href="#system">System</a>
       <a href="#rollout">Rollout</a>
       <a href="#services">Services</a>
       <a href="#ads">Ads maths</a>
@@ -205,7 +221,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
   <div class="wrap hero">
     <p class="label">Revised proposal &middot; October 2026</p>
     <h1>Moksh Interio</h1>
-    <p class="hero__sub">Google Ads first. Built to buy leads, not impressions.</p>
+    <p class="hero__sub">A complete growth system, led by Google Ads. Built to buy leads, not impressions.</p>
   </div>
 
   <section class="statement">
@@ -219,21 +235,26 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
   <section id="costs">
     <div class="wrap sec">
       <div class="sec__head">
-        <p class="label">The breakdown</p>
-        <h2>What it costs.</h2>
+        <p class="label">What it costs</p>
+        <h2>Meaningful investment, staged for growth.</h2>
+        <p class="lede">This plan is curated to avoid a large upfront marketing investment. We start with the essential foundation and a controlled Google Ads budget, measure what the market responds to, and increase investment progressively when performance supports it.</p>
       </div>
       <div class="costs">
         <div class="card card--lead">
           <p class="card__kicker">To get started &mdash; first month</p>
           <span class="num price">&#8377;2,50,000</span>
-          <p class="note">One-time setup plus month 1</p>
+          <p class="note">One-time setup plus Month 1</p>
           <div class="rows">
+            <div class="grp"><span>One-time setup</span><span class="amt">&#8377;1,30,000</span></div>
             <div><span>Branding</span><span>&#8377;35,000</span></div>
             <div><span>Website</span><span>&#8377;60,000</span></div>
             <div><span>Brand documentary</span><span>&#8377;35,000</span></div>
+            <div class="grp"><span>Month 1 &middot; ad budget, <em>paid to Google</em></span></div>
             <div><span>Google Ads starting budget</span><span>&#8377;60,000</span></div>
+            <div class="grp"><span>Month 1 &middot; Measure Pixel</span></div>
             <div><span>Agency fee</span><span>&#8377;60,000</span></div>
           </div>
+          <p class="eq">&#8377;1,30,000 one-time setup + &#8377;60,000 Google Ads starting budget + &#8377;60,000 agency fee = <b>&#8377;2,50,000</b></p>
         </div>
         <div class="stack">
           <div class="card">
@@ -243,15 +264,17 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
               <div><span>Google Ads starting budget</span><span>&#8377;60,000</span></div>
               <div><span>Agency fee</span><span>&#8377;60,000</span></div>
             </div>
+            <p class="note">Google Ads starts at &#8377;60,000/month and may be increased progressively based on campaign performance and agreed growth targets.</p>
           </div>
           <div class="card">
-            <p class="card__kicker">Optional SEO</p>
+            <p class="card__kicker">Optional add-on &middot; SEO</p>
             <span class="num price price--sm">+&#8377;40,000 <small>/ month</small></span>
             <p class="note">Total with SEO: &#8377;1,60,000 a month</p>
           </div>
         </div>
       </div>
-      <p class="perf">Ad spend is performance-led. &#8377;60,000 a month is the starting budget, not the ceiling: as campaigns generate qualified leads and show healthy economics, the Google Ads budget can be increased to capture more demand. All figures exclusive of 18% GST, and ad spend is paid to Google rather than to us.</p>
+      <p class="perf">Ad spend is performance-led. &#8377;60,000 a month is the starting budget, not the ceiling: as campaigns generate leads and show healthy economics, the Google Ads budget can be increased to capture more demand. All figures are exclusive of 18% GST. Ad spend is paid to Google, not to us.</p>
+      <p class="perf perf--fine">Domain and hosting are included for the first 12 months. From Year 2, renewal is approximately &#8377;10,000/year, subject to actual provider charges.</p>
     </div>
   </section>
 
@@ -260,7 +283,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
       <div class="sec__head">
         <p class="label">The engagement</p>
         <h2>A 12-month growth engagement.</h2>
-        <p class="lede">The 12-month commitment gives the system enough time to learn, optimise and scale. This is not a short-term campaign.</p>
+        <p class="lede">This is a 12-month growth engagement designed to give the acquisition system enough time to establish data, identify high-performing search demand, optimise conversion and progressively scale what works.</p>
+        <p class="lede">The Google Ads budget starts at &#8377;60,000/month and can increase as performance becomes predictable and the economics support further scaling.</p>
       </div>
       <div class="three">
         <div class="phase">
@@ -282,6 +306,46 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
     </div>
   </section>
 
+  <section id="system">
+    <div class="wrap sec">
+      <div class="sec__head">
+        <p class="label">Growth system</p>
+        <h2>One system, managed end to end.</h2>
+        <p class="lede">The &#8377;60,000 monthly agency fee covers management of the complete growth system &mdash; not Google Ads alone.</p>
+      </div>
+      <div class="cols">
+        <div class="col">
+          <h4>Acquisition</h4>
+          <ul>
+            <li>Google Ads Management</li>
+            <li>Campaign Strategy &amp; Optimisation</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4>Tracking &amp; Analytics</h4>
+          <ul>
+            <li>Google Analytics 4</li>
+            <li>Google Tag Manager</li>
+            <li>Microsoft Clarity</li>
+            <li>Conversion &amp; Lead Tracking</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4>CRM &amp; Automation</h4>
+          <ul>
+            <li>CRM Management</li>
+            <li>WhatsApp Automation</li>
+            <li>Email Automation</li>
+            <li>Lead Follow-up Automation</li>
+          </ul>
+        </div>
+      </div>
+      <ol class="flow" aria-label="How the growth system connects">
+        <li>Traffic</li><li>Tracking</li><li>CRM</li><li>Automation</li><li>Follow-up</li><li>Conversion</li>
+      </ol>
+    </div>
+  </section>
+
   <section id="rollout">
     <div class="wrap sec">
       <div class="sec__head">
@@ -291,7 +355,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
       <dl class="steps">
         <div class="step">
           <dt>Weeks 1&ndash;3</dt>
-          <dd>Branding, website and documentary built. Conversion tracking, keyword list, negative keywords and geo-fencing set up before a single rupee is spent.</dd>
+          <dd>Branding, website and documentary built. Conversion tracking (GA4, Tag Manager, Clarity), CRM and follow-up automation, keyword list, negative keywords and geo-fencing set up before the first rupee of ad spend.</dd>
         </div>
         <div class="step">
           <dt>Month 1</dt>
@@ -299,7 +363,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
         </div>
         <div class="step">
           <dt>Months 2&ndash;3</dt>
-          <dd>Cut wasted spend, keep the keywords that produced calls, A/B test the landing page, start retargeting people who watched the documentary.</dd>
+          <dd>Cut wasted spend, keep the keywords that produced calls, A/B test the landing page, refine the CRM follow-up sequences, start retargeting people who watched the documentary.</dd>
         </div>
         <div class="step">
           <dt>Months 4&ndash;6</dt>
@@ -334,7 +398,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
           <div class="col col--con">
             <h4>Cons</h4>
             <ul>
-              <li>Essentials only: logo, palette, typography, basic usage rules. No strategy workshop or collateral suite</li>
+              <li>Essentials only: logo, palette, typography, core usage rules. No strategy workshop or collateral suite</li>
               <li>A full identity upgrade comes later, at &#8377;1.5L to &#8377;2.5L, once revenue supports it</li>
               <li>Fewer revision rounds than a full engagement</li>
             </ul>
@@ -379,7 +443,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
             <h4>Pros</h4>
             <ul>
               <li>Communicates the brand and its expertise in minutes, so the prospect arrives pre-framed</li>
-              <li>Lifts conversion rate on the same ad spend, lowering cost per lead with no extra budget</li>
+              <li>Designed to lift conversion rate on the same ad spend, lowering cost per lead with no extra budget</li>
               <li>One asset, many placements: hero banner, retargeting, YouTube, sales calls, WhatsApp</li>
               <li>The manufacturing unit on camera is proof competitors cannot fake with renders</li>
             </ul>
@@ -394,20 +458,20 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
           </div>
           <div class="col rec">
             <h4>Our recommendation</h4>
-            <p>Essential, not optional. Ad spend is fixed; conversion rate is the lever we control. Moving the landing page from 2% to 3% on the same &#8377;60,000 is roughly two extra leads a month, so the video pays for itself inside the first two months.</p>
+            <p>Essential, not optional. At any given budget, conversion rate is the lever we control. Moving the landing page from 2% to 3% on the same &#8377;60,000 is roughly two extra leads a month, which is how the documentary lowers cost per lead.</p>
           </div>
         </div>
       </div>
 
       <div class="svc">
-        <div class="svc__top"><h3>Google Ads</h3><span class="tag">&#8377;60,000 monthly ad spend</span></div>
+        <div class="svc__top"><h3>Google Ads</h3><span class="tag">&#8377;60,000 starting monthly ad budget</span></div>
         <div class="cols">
           <div class="col">
             <h4>Pros</h4>
             <ul>
               <li>Captures people searching for interior designers in Chennai today</li>
-              <li>Fastest route to the first qualified enquiry: days, not months</li>
-              <li>Every click is measurable, and the conversion data makes later leads cheaper</li>
+              <li>Fastest route to the first enquiry: days, not months</li>
+              <li>Every click is measurable, and the conversion data lowers the cost of later leads</li>
               <li>&#8377;60,000 clears the &#8377;52,500 learning threshold for a fresh account at &#8377;350 a click</li>
             </ul>
           </div>
@@ -417,7 +481,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
               <li>&#8377;350 a click is the high-competition reality: months one and two buy data, not profit</li>
               <li>About 5 to 6 clicks a day, under the 10-a-day ideal, so the algorithm learns slower</li>
               <li>A fresh account with no history can spend the month in days if targeting is loose</li>
-              <li>Lead flow starts small: three to nine leads a month, not thirty</li>
+              <li>The expected lead range starts small: an estimated three to nine leads a month, not thirty</li>
             </ul>
           </div>
           <div class="col rec">
@@ -460,7 +524,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
     <div class="wrap sec">
       <div class="sec__head">
         <p class="label">The maths behind the budget</p>
-        <h2>Why &#8377;60,000 a month.</h2>
+        <h2>Why &#8377;60,000 is the starting budget.</h2>
         <p class="lede">A daily budget that cannot afford enough clicks exhausts itself early in the day and starves Google's algorithm of the conversion data it needs to optimise.</p>
       </div>
       <div class="tablewrap">
@@ -472,30 +536,30 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
             <tr><td>Clicks per day</td><td class="v">3 to 4</td><td class="v">5</td><td class="this">5 to 6</td></tr>
             <tr><td>Daily budget</td><td class="v">&#8377;1,150&ndash;1,400</td><td class="v">&#8377;1,750</td><td class="this">&#8377;2,000</td></tr>
             <tr><td>Clicks per month</td><td class="v">about 100</td><td class="v">about 150</td><td class="this">about 170</td></tr>
-            <tr><td>Monthly budget</td><td class="v">&#8377;35,000&ndash;42,000</td><td class="v">&#8377;52,500</td><td class="this">&#8377;60,000</td></tr>
+            <tr><td>Monthly ad budget</td><td class="v">&#8377;35,000&ndash;42,000</td><td class="v">&#8377;52,500</td><td class="this">&#8377;60,000</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="caption">Based on &#8377;350 average cost per click for high-competition interior design keywords. The 10-clicks-a-day rule of thumb would need &#8377;1,05,000 a month at this CPC.</p>
+      <p class="caption">Based on an assumed &#8377;350 average cost per click for high-competition interior design keywords. The 10-clicks-a-day rule of thumb would need &#8377;1,05,000 a month at this CPC. Estimates, not guarantees.</p>
 
       <div class="stats">
         <div class="stat">
           <span class="num">3 to 9</span>
-          <strong>Leads a month</strong>
-          <p>At 2% to 5% landing page conversion, the benchmark for interior design search intent. How many of those are qualified depends on keyword intent, location, project value and the qualification criteria we agree.</p>
+          <strong>Expected lead range, per month</strong>
+          <p>An estimate at the &#8377;60,000 starting budget, based on an assumed &#8377;350 cost per click and 2% to 5% landing page conversion. How many leads are qualified depends on keyword intent, location, project value and the qualification criteria we agree.</p>
         </div>
         <div class="stat">
           <span class="num">&#8377;6,700&ndash;20,000</span>
           <strong>Expected cost per lead</strong>
-          <p>Based on &#8377;60,000 ad spend and 3 to 9 leads a month. At &#8377;35,000 spend the range is 2 to 5 leads; at &#8377;52,500 it is 3 to 8.</p>
+          <p>Based on &#8377;60,000 ad spend and an expected 3 to 9 leads a month. At &#8377;35,000 spend the range is 2 to 5 leads; at &#8377;52,500 it is 3 to 8.</p>
         </div>
         <div class="stat">
           <span class="num">&#8377;50,000&ndash;1,00,000</span>
-          <strong>Cost to acquire a client</strong>
-          <p>At &#8377;10,000 a lead, a 20% close rate means &#8377;50,000 to win a client and a 10% close rate means &#8377;1,00,000. Against a &#8377;25L minimum project, that is under 1% of project value spent on media.</p>
+          <strong>Illustrative media cost per closed client</strong>
+          <p>At &#8377;10,000 a lead, an assumed 20% close rate means &#8377;50,000 of media to win a client and a 10% close rate means &#8377;1,00,000. Against a &#8377;25L minimum project, that is 2% to 4% of project value.</p>
         </div>
       </div>
-      <p class="caption">Month one is a dataset, not a sales target. With the agency fee included, early all-in cost per lead is &#8377;13,000 to &#8377;40,000, or &#8377;1.3L to &#8377;4L per closed client at a 10% close rate &mdash; 5% to 16% of one &#8377;25L project.</p>
+      <p class="caption">Month one is a dataset, not a sales target. With the agency fee included, the early all-in cost per lead is &#8377;13,000 to &#8377;40,000 &mdash; illustratively &#8377;1.3L to &#8377;4L per closed client at an assumed 10% close rate, or 5% to 16% of one &#8377;25L project.</p>
     </div>
   </section>
 
@@ -512,7 +576,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
         </div>
         <div class="item">
           <h3>Negative keywords loaded first</h3>
-          <p>jobs, recruitment, course, classes, salary, ideas, wallpaper, DIY, cheap, low cost &mdash; in before launch, not after.</p>
+          <p>jobs, recruitment, course, classes, salary, ideas, wallpaper, DIY, discount, bargain &mdash; in before launch, not after.</p>
         </div>
         <div class="item">
           <h3>Hyper-local geo-fencing</h3>
@@ -531,6 +595,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
       <div class="sec__head">
         <p class="label">Agency fee &middot; &#8377;60,000 monthly</p>
         <h2>What the fee covers.</h2>
+        <p class="lede">Management of Google Ads, tracking, CRM and automation &mdash; one fee, one team.</p>
       </div>
       <div class="three">
         <div class="item">
@@ -542,23 +607,23 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
           <p>Ad copy variants, landing page copy, documentary cut-downs for retargeting.</p>
         </div>
         <div class="item">
-          <h3>Tracking</h3>
-          <p>Call and form tracking, GA4 and Google Ads conversion setup, heatmaps on the landing pages.</p>
+          <h3>Tracking and analytics</h3>
+          <p>GA4, Tag Manager, Microsoft Clarity heatmaps, and call, form and lead conversion tracking.</p>
         </div>
         <div class="item">
-          <h3>Conversion optimisation</h3>
-          <p>Iterative changes to the pages ads point at, based on what the heatmaps and form data show.</p>
+          <h3>CRM management</h3>
+          <p>Every enquiry captured, tagged and followed through the pipeline, so no lead goes cold.</p>
         </div>
         <div class="item">
-          <h3>Reporting</h3>
-          <p>Monthly review of spend, cost per lead, lead quality and the next month's decisions.</p>
+          <h3>Automation and follow-up</h3>
+          <p>WhatsApp, email and lead follow-up sequences that respond to new enquiries without delay.</p>
         </div>
         <div class="item">
-          <h3>Strategy</h3>
-          <p>Keyword and competitor research, budget allocation, and when to scale spend.</p>
+          <h3>Optimisation, reporting and strategy</h3>
+          <p>Page and campaign improvements from what the data shows, a monthly review of spend and cost per lead, and clear calls on when to scale.</p>
         </div>
       </div>
-      <p class="perf">The fee is flat: as ad spend scales, it stays at &#8377;60,000, so fee against media improves every month. SEO execution &mdash; content, backlinks and technical work &mdash; sits under the separate &#8377;40,000 line.</p>
+      <p class="perf">The fee is flat: as ad spend scales, it stays at &#8377;60,000, so fee against media improves every month. SEO execution &mdash; content, backlinks and technical work &mdash; sits under the separate, optional &#8377;40,000 line.</p>
     </div>
   </section>
 
@@ -567,13 +632,13 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
       <div class="sec__head">
         <p class="label">Year one, in numbers</p>
         <h2>When this pays for itself.</h2>
-        <p class="lede">Two closed projects cover the entire year of media and fees. Everything above that is margin, and the same monthly spend produces more leads as the account keeps learning.</p>
+        <p class="lede">On the assumptions below, two closed projects would cover the year's media and fees. Everything above that is margin, and the same monthly spend can produce more leads as the account keeps learning.</p>
       </div>
       <div class="stats">
         <div class="stat">
           <span class="num">&#8377;15.70L</span>
           <strong>Total year one</strong>
-          <p>&#8377;1,30,000 one time plus &#8377;1,20,000 a month. With SEO running all year: &#8377;20.50L.</p>
+          <p>&#8377;1,30,000 one-time setup plus &#8377;1,20,000 a month for twelve months, at the &#8377;60,000 starting ad budget. With SEO running all year: &#8377;20.50L. Any increase in ad budget is additional.</p>
         </div>
         <div class="stat">
           <span class="num">2 projects</span>
@@ -582,8 +647,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
         </div>
         <div class="stat">
           <span class="num">60&ndash;100</span>
-          <strong>Leads expected in the year</strong>
-          <p>Six to ten closed projects at a 10% close rate; nine to fifteen at 15%.</p>
+          <strong>Expected lead range for the year</strong>
+          <p>Illustrative: six to ten closed projects at an assumed 10% close rate; nine to fifteen at 15%. Assumes the account improves as it learns and spend scales where the economics hold.</p>
         </div>
       </div>
       <p class="caption">Projections, not guarantees. They assume &#8377;350 average CPC, 2&ndash;5% landing page conversion, a &#8377;25L minimum project and a 35% gross margin. Close rates are illustrative &mdash; replace any of these with your real numbers and the maths moves.</p>
@@ -600,12 +665,12 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
         <div class="phase">
           <p class="label">This week</p>
           <h3>Confirm and release</h3>
-          <p>Approve the scope and release the &#8377;2,50,000 first-month investment.</p>
+          <p>Approve the scope and release the &#8377;2,50,000 first-month investment, of which &#8377;60,000 is ad spend paid to Google.</p>
         </div>
         <div class="phase">
           <p class="label label--quiet">Weeks 1&ndash;3</p>
           <h3>Build</h3>
-          <p>Branding, website and documentary produced; tracking and keywords ready to go.</p>
+          <p>Branding, website and documentary produced; tracking, CRM and keywords ready to go.</p>
         </div>
         <div class="phase">
           <p class="label label--quiet">Month 1</p>
