@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Measure Pixel growth proposal for Moksh Interio: Google Ads first, with costs, service analysis and year-one economics.">
+<meta name="robots" content="noindex, nofollow">
+<title>Moksh Interio Proposal</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: single scroll column, 1120px measure, hairline-ruled sections; money set in mono. Committed single dark brand world (Measure Pixel lime on olive-warm black). */
+:root{
+  --ink:#111210;
+  --surface:#1A1C18;
+  --surface-2:#22251F;
+  --line:#2E322A;
+  --fg:#F2F3EE;
+  --muted:#A3A69C;
+  --accent:#CEF03B;
+  --accent-ink:#15180C;
+  --accent-dim:#9CB82C;
+  --display:'Manrope', 'Helvetica Neue', Arial, sans-serif;
+  --mono:'JetBrains Mono', ui-monospace, 'Courier New', monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--ink);
+  color:var(--fg);
+  font-family:var(--display);
+  font-weight:500;
+  font-size:clamp(16px,1.05vw,18px);
+  line-height:1.6;
+  letter-spacing:-0.005em;
+}
+img{max-width:100%}
+[hidden]{display:none!important}
+h1,h2,h3{margin:0;text-wrap:balance;font-weight:800;letter-spacing:-0.035em;line-height:1.04}
+h1{font-size:clamp(44px,8.5vw,96px)}
+h2{font-size:clamp(28px,4.4vw,52px)}
+h3{font-size:clamp(19px,1.5vw,23px);font-weight:700;letter-spacing:-0.02em;line-height:1.25}
+p{margin:0}
+a{color:var(--accent)}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:20px}
+.label{
+  font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--accent);margin:0;
+}
+.label--quiet{color:var(--muted)}
+.lede{font-size:clamp(18px,1.6vw,22px);color:var(--muted);line-height:1.55;max-width:62ch}
+.num{font-family:var(--mono);font-weight:700;letter-spacing:-0.02em;font-variant-numeric:tabular-nums}
+
+/* header */
+.top{
+  position:sticky;top:env(safe-area-inset-top,0px);z-index:20;
+  background:rgba(17,18,16,0.86);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.top__in{display:flex;align-items:center;gap:20px;min-height:64px}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.brand svg{flex:none}
+.brand b{font-weight:800;font-size:16px;letter-spacing:-0.02em}
+.brand span{color:var(--muted);font-size:14px;white-space:nowrap}
+.navlinks{display:flex;gap:22px;margin-left:auto;flex-wrap:wrap}
+.navlinks a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600}
+.navlinks a:hover{color:var(--fg)}
+@media (max-width:760px){.navlinks{display:none}.brand span{display:none}}
+
+/* hero */
+.hero{padding-block:clamp(56px,9vw,112px) clamp(40px,6vw,72px)}
+.hero h1{margin-block:18px 20px}
+.hero__sub{font-size:clamp(20px,2.4vw,30px);color:var(--fg);font-weight:600;letter-spacing:-0.025em;max-width:30ch}
+.figs{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;margin-top:clamp(36px,5vw,56px);overflow:hidden}
+.figs>div{background:var(--ink);padding:24px 22px;min-width:0}
+.figs .num{display:block;font-size:clamp(26px,3vw,38px);margin-bottom:6px}
+.figs p:last-child{font-size:14px;color:var(--muted);line-height:1.4}
+@media (max-width:640px){.figs{grid-template-columns:1fr}}
+
+/* sections */
+section{border-top:1px solid var(--line)}
+.sec{padding-block:clamp(56px,7.5vw,96px)}
+.sec__head{display:flex;flex-direction:column;gap:14px;margin-bottom:clamp(32px,4vw,52px)}
+.statement{background:var(--accent);color:var(--accent-ink)}
+.statement .sec{padding-block:clamp(56px,8vw,104px)}
+.statement h2{max-width:24ch}
+.statement .label{color:#4E5A17}
+.statement p.big{font-size:clamp(18px,2vw,26px);line-height:1.45;max-width:58ch;margin-top:22px;font-weight:600}
+
+/* cost blocks */
+.costs{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(20px,2.5vw,36px);align-items:start}
+@media (max-width:820px){.costs{grid-template-columns:1fr}}
+.card{border:1px solid var(--line);border-radius:4px;padding:clamp(24px,2.6vw,34px);background:var(--surface);min-width:0}
+.card--lead{border-top:3px solid var(--accent);background:var(--surface-2)}
+.card__kicker{font-size:14px;font-weight:700;color:var(--muted);letter-spacing:0.04em;text-transform:uppercase}
+.price{display:block;font-size:clamp(40px,6.4vw,76px);margin:14px 0 4px;line-height:1}
+.price--sm{font-size:clamp(32px,4.4vw,50px)}
+.price small{font-family:var(--display);font-size:0.34em;font-weight:600;color:var(--muted);letter-spacing:0}
+.note{font-size:14px;color:var(--muted)}
+.rows{margin-top:22px;border-top:1px solid var(--line)}
+.rows div{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--line);font-size:15px}
+.rows span:last-child{font-family:var(--mono);font-weight:500;white-space:nowrap}
+.stack{display:flex;flex-direction:column;gap:clamp(20px,2.5vw,28px)}
+.perf{margin-top:28px;font-size:15px;color:var(--muted);max-width:76ch}
+
+/* three-up */
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,2.6vw,40px)}
+@media (max-width:820px){.three{grid-template-columns:1fr}}
+.phase{border-top:1px solid var(--line);padding-top:20px;min-width:0}
+.phase:first-child{border-top-color:var(--accent);border-top-width:2px}
+.phase h3{margin-bottom:8px}
+.phase .label{margin-bottom:10px}
+.phase p{font-size:15px;color:var(--muted)}
+
+/* rollout */
+.steps{display:flex;flex-direction:column}
+.step{display:grid;grid-template-columns:200px 1fr;gap:clamp(16px,3vw,48px);padding:22px 0;border-top:1px solid var(--line)}
+.step:last-child{border-bottom:1px solid var(--line)}
+.step dt{font-family:var(--mono);font-weight:500;font-size:15px;color:var(--accent);letter-spacing:-0.01em}
+.step dd{margin:0;font-size:16px;color:var(--fg);max-width:70ch}
+@media (max-width:640px){.step{grid-template-columns:1fr;gap:6px}}
+
+/* services */
+.svc{border-top:1px solid var(--line);padding-block:clamp(36px,4.5vw,56px)}
+.svc:first-of-type{border-top:none;padding-top:0}
+.svc__top{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 18px;margin-bottom:26px}
+.svc__top h3{font-size:clamp(24px,2.8vw,34px);font-weight:800;letter-spacing:-0.03em}
+.tag{font-family:var(--mono);font-size:14px;font-weight:500;color:var(--accent);border:1px solid var(--accent-dim);border-radius:999px;padding:3px 12px;white-space:nowrap}
+.tag--opt{color:var(--muted);border-color:var(--line)}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,2.6vw,40px)}
+@media (max-width:860px){.cols{grid-template-columns:1fr}}
+.col{min-width:0}
+.col h4{margin:0 0 12px;font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)}
+.col ul{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.col li{padding:12px 0;border-bottom:1px solid var(--line);font-size:15px;line-height:1.5}
+.col--con li{color:var(--muted)}
+.rec{border-top:2px solid var(--accent);padding-top:16px}
+.rec h4{color:var(--accent)}
+.rec p{font-size:15px;line-height:1.55}
+
+/* table */
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:4px}
+table{border-collapse:collapse;width:100%;min-width:620px;font-size:15px}
+th,td{text-align:left;padding:14px 18px;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);font-weight:700;background:var(--surface)}
+td:first-child{color:var(--muted)}
+tr:last-child td{border-bottom:none}
+td.this{font-family:var(--mono);font-weight:700;color:var(--accent)}
+td.v{font-family:var(--mono);font-weight:500}
+.caption{margin-top:14px;font-size:14px;color:var(--muted);max-width:80ch}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,2.6vw,40px);margin-top:clamp(32px,4vw,48px)}
+@media (max-width:860px){.stats{grid-template-columns:1fr}}
+.stat{border-top:2px solid var(--line);padding-top:22px;min-width:0}
+.stat:first-child{border-top-color:var(--accent)}
+.stat .num{display:block;font-size:clamp(32px,4vw,50px);line-height:1;margin-bottom:10px;overflow-wrap:anywhere}
+.stat strong{display:block;font-size:17px;font-weight:700;margin-bottom:8px}
+.stat p{font-size:15px;color:var(--muted)}
+
+/* guards + fee grid */
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(20px,2.6vw,40px)}
+@media (max-width:760px){.grid2{grid-template-columns:1fr}}
+.item{border-top:1px solid var(--line);padding-top:18px;min-width:0}
+.item h3{margin-bottom:8px}
+.item p{font-size:15px;color:var(--muted)}
+
+/* next steps + contact */
+.next{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,2.6vw,40px);margin-bottom:clamp(40px,5vw,64px)}
+@media (max-width:820px){.next{grid-template-columns:1fr}}
+.contact{border:1px solid var(--line);border-radius:4px;background:var(--surface);padding:clamp(24px,3vw,40px);display:flex;flex-wrap:wrap;gap:24px 40px;align-items:flex-end;justify-content:space-between}
+.contact__who strong{display:block;font-size:19px;font-weight:800;letter-spacing:-0.02em}
+.contact__who span{font-size:15px;color:var(--muted)}
+.lines{display:flex;flex-direction:column;gap:10px}
+.line{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.line code{font-family:var(--mono);font-size:15px;color:var(--fg);background:none}
+.copy{
+  font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
+  color:var(--muted);background:none;border:1px solid var(--line);border-radius:999px;padding:4px 10px;cursor:pointer;
+}
+.copy:hover{color:var(--accent);border-color:var(--accent-dim)}
+.copy[data-done="1"]{color:var(--accent-ink);background:var(--accent);border-color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+footer{border-top:1px solid var(--line);padding-block:32px 48px;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-between}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap top__in">
+    <div class="brand">
+      <svg width="26" height="26" viewBox="0 0 52 52" aria-label="Measure Pixel"><path d="M4 6 L26 27 L48 6 V33 L38 33 V17 L26 29 L14 17 V44 L4 44 Z" fill="#CEF03B"/><rect x="30" y="35" width="10" height="10" fill="#CEF03B"/></svg>
+      <b>Measure Pixel</b>
+      <span>&middot;&nbsp; Proposal for Moksh Interio</span>
+    </div>
+    <nav class="navlinks" aria-label="Sections">
+      <a href="#costs">Costs</a>
+      <a href="#rollout">Rollout</a>
+      <a href="#services">Services</a>
+      <a href="#ads">Ads maths</a>
+      <a href="#economics">Economics</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <p class="label">Revised proposal &middot; October 2026</p>
+    <h1>Moksh Interio</h1>
+    <p class="hero__sub">Google Ads first. Built to buy leads, not impressions.</p>
+    <div class="figs">
+      <div>
+        <span class="num">&#8377;2,50,000</span>
+        <p>First month: one-time setup plus month 1</p>
+      </div>
+      <div>
+        <span class="num">&#8377;1,20,000</span>
+        <p>From month 2, every month</p>
+      </div>
+      <div>
+        <span class="num">12 months</span>
+        <p>Growth engagement, not a short campaign</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="statement">
+    <div class="wrap sec">
+      <p class="label">What changed</p>
+      <h2>Phase one buys leads, not awareness.</h2>
+      <p class="big">Branding, the website and the documentary exist to make every rupee of Google Ads spend work harder. Nothing in this plan waits on brand building before enquiries start.</p>
+    </div>
+  </section>
+
+  <section id="costs">
+    <div class="wrap sec">
+      <div class="sec__head">
+        <p class="label">The breakdown</p>
+        <h2>What it costs.</h2>
+      </div>
+      <div class="costs">
+        <div class="card card--lead">
+          <p class="card__kicker">To get started &mdash; first month</p>
+          <span class="num price">&#8377;2,50,000</span>
+          <p class="note">One-time setup plus month 1</p>
+          <div class="rows">
+            <div><span>Branding</span><span>&#8377;35,000</span></div>
+            <div><span>Website</span><span>&#8377;60,000</span></div>
+            <div><span>Brand documentary</span><span>&#8377;35,000</span></div>
+            <div><span>Google Ads starting budget</span><span>&#8377;60,000</span></div>
+            <div><span>Agency fee</span><span>&#8377;60,000</span></div>
+          </div>
+        </div>
+        <div class="stack">
+          <div class="card">
+            <p class="card__kicker">From month 2</p>
+            <span class="num price price--sm">&#8377;1,20,000 <small>/ month</small></span>
+            <div class="rows">
+              <div><span>Google Ads starting budget</span><span>&#8377;60,000</span></div>
+              <div><span>Agency fee</span><span>&#8377;60,000</span></div>
+            </div>
+          </div>
+          <div class="card">
+            <p class="card__kicker">Optional SEO</p>
+            <span class="num price price--sm">+&#8377;40,000 <small>/ month</small></span>
+            <p class="note">Total with SEO: &#8377;1,60,000 a month</p>
+          </div>
+        </div>
+      </div>
+      <p class="perf">Ad spend is performance-led. &#8377;60,000 a month is the starting budget, not the ceiling: as campaigns generate qualified leads and show healthy economics, the Google Ads budget can be increased to capture more demand. All figures exclusive of 18% GST, and ad spend is paid to Google rather than to us.</p>
+    </div>
+  </section>
+
+  <section id="commitment">
+    <div class="wrap sec">
+      <div class="sec__head">
+        <p class="label">The engagement</p>
+        <h2>A 12-month growth engagement.</h2>
+        <p class="lede">The 12-month commitment gives the system enough time to learn, optimise and scale. This is not a short-term campaign.</p>
+      </div>
+      <div class="three">
+        <div class="phase">
+          <p class="label">Months 1&ndash;3</p>
+          <h3>Learn</h3>
+          <p>Establish the data. Find which searches produce real enquiries and which burn budget.</p>
+        </div>
+        <div class="phase">
+          <p class="label label--quiet">Months 4&ndash;6</p>
+          <h3>Optimise</h3>
+          <p>Improve conversion on the pages, cut waste, concentrate spend on proven demand.</p>
+        </div>
+        <div class="phase">
+          <p class="label label--quiet">Months 7&ndash;12</p>
+          <h3>Scale</h3>
+          <p>Raise the ad investment where the economics hold, and build the acquisition engine out.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="rollout">
+    <div class="wrap sec">
+      <div class="sec__head">
+        <p class="label">The rollout</p>
+        <h2>Twelve months, five moves.</h2>
+      </div>
+      <dl class="steps">
+        <div class="step">
+          <dt>Weeks 1&ndash;3</dt>
+          <dd>Branding, website and documentary built. Conversion tracking, keyword list, negative keywords and geo-fencing set up before a single rupee is spent.</dd>
+        </div>
+        <div class="step">
+          <dt>Month 1</dt>
+          <dd>Google Ads goes live on phrase and exact match only, manual CPC, tight radius. The month's job is conversion data, not profit.</dd>
+        </div>
+        <div class="step">
+          <dt>Months 2&ndash;3</dt>
+          <dd>Cut wasted spend, keep the keywords that produced calls, A/B test the landing page, start retargeting people who watched the documentary.</dd>
+        </div>
+        <div class="step">
+          <dt>Months 4&ndash;6</dt>
+          <dd>Scale spend on proven keywords only. Add Performance Max now that the account has conversion history to learn from.</dd>
+        </div>
+        <div class="step">
+          <dt>Months 7&ndash;12</dt>
+          <dd>SEO leads begin to land. Blended cost per lead falls as organic carries part of the volume paid search was carrying alone.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap sec">
+      <div class="sec__head">
+        <p class="label">Service by service</p>
+        <h2>What each line buys, and what it does not.</h2>
+      </div>
+
+      <div class="svc">
+        <div class="svc__top"><h3>Branding</h3><span class="tag">&#8377;35,000 one time</span></div>
+        <div class="cols">
+          <div class="col">
+            <h4>Pros</h4>
+            <ul>
+              <li>One visual language across ads, website and video from day one, so every impression builds recall</li>
+              <li>Priced so it never delays the ads launch</li>
+              <li>Ends the "which logo, which colour" friction on every asset built after this</li>
+            </ul>
+          </div>
+          <div class="col col--con">
+            <h4>Cons</h4>
+            <ul>
+              <li>Essentials only: logo, palette, typography, basic usage rules. No strategy workshop or collateral suite</li>
+              <li>A full identity upgrade comes later, at &#8377;1.5L to &#8377;2.5L, once revenue supports it</li>
+              <li>Fewer revision rounds than a full engagement</li>
+            </ul>
+          </div>
+          <div class="col rec">
+            <h4>Our recommendation</h4>
+            <p>Take the lean version now. Brand depth does not produce enquiries in month one; consistency does. Six months of ad data will tell us which message actually converts, and the full identity can then be built on evidence instead of assumptions.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="svc">
+        <div class="svc__top"><h3>Website</h3><span class="tag">&#8377;60,000 one time</span></div>
+        <div class="cols">
+          <div class="col">
+            <h4>Pros</h4>
+            <ul>
+              <li>The conversion asset: paid clicks have nowhere to convert without it</li>
+              <li>Built for paid search: focused landing structure, call and form tracking, fast load</li>
+              <li>Documentary on the hero banner pre-frames the visitor before any sales call</li>
+            </ul>
+          </div>
+          <div class="col col--con">
+            <h4>Cons</h4>
+            <ul>
+              <li>Buys a conversion-focused site, not a thirty-page content library</li>
+              <li>Sits on the critical path: branding finishes first, so it gates the ads launch</li>
+              <li>Blog and SEO page build-out belongs to the SEO line, not here</li>
+            </ul>
+          </div>
+          <div class="col rec">
+            <h4>Our recommendation</h4>
+            <p>Build it before the first rupee of ad spend. Sending &#8377;350 clicks to a weak page is how fresh accounts burn &#8377;60,000 with nothing to show. Minimum: hero with the documentary, trust row, project gallery, qualifier form, call and WhatsApp buttons, and a thank-you page wired to tracking.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="svc">
+        <div class="svc__top"><h3>Brand documentary</h3><span class="tag">&#8377;35,000 one time</span></div>
+        <div class="cols">
+          <div class="col">
+            <h4>Pros</h4>
+            <ul>
+              <li>Communicates the brand and its expertise in minutes, so the prospect arrives pre-framed</li>
+              <li>Lifts conversion rate on the same ad spend, lowering cost per lead with no extra budget</li>
+              <li>One asset, many placements: hero banner, retargeting, YouTube, sales calls, WhatsApp</li>
+              <li>The manufacturing unit on camera is proof competitors cannot fake with renders</li>
+            </ul>
+          </div>
+          <div class="col col--con">
+            <h4>Cons</h4>
+            <ul>
+              <li>Needs site and factory access plus one to two days of your team's time</li>
+              <li>Covers one shoot block at high-end production quality; extra locations or a second day cost more</li>
+              <li>Needs refreshing in twelve to eighteen months as projects and team change</li>
+            </ul>
+          </div>
+          <div class="col rec">
+            <h4>Our recommendation</h4>
+            <p>Essential, not optional. Ad spend is fixed; conversion rate is the lever we control. Moving the landing page from 2% to 3% on the same &#8377;60,000 is roughly two extra leads a month, so the video pays for itself inside the first two months.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="svc">
+        <div class="svc__top"><h3>Google Ads</h3><span class="tag">&#8377;60,000 monthly ad spend</span></div>
+        <div class="cols">
+          <div class="col">
+            <h4>Pros</h4>
+            <ul>
+              <li>Captures people searching for interior designers in Chennai today</li>
+              <li>Fastest route to the first qualified enquiry: days, not months</li>
+              <li>Every click is measurable, and the conversion data makes later leads cheaper</li>
+              <li>&#8377;60,000 clears the &#8377;52,500 learning threshold for a fresh account at &#8377;350 a click</li>
+            </ul>
+          </div>
+          <div class="col col--con">
+            <h4>Cons</h4>
+            <ul>
+              <li>&#8377;350 a click is the high-competition reality: months one and two buy data, not profit</li>
+              <li>About 5 to 6 clicks a day, under the 10-a-day ideal, so the algorithm learns slower</li>
+              <li>A fresh account with no history can spend the month in days if targeting is loose</li>
+              <li>Lead flow starts small: three to nine leads a month, not thirty</li>
+            </ul>
+          </div>
+          <div class="col rec">
+            <h4>Our recommendation</h4>
+            <p>Start here and hold the budget flat for ninety days. Let conversion data build under the guardrails below, then raise spend only on keywords that produced calls. Scaling before the data exists is how ad accounts lose money quietly.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="svc">
+        <div class="svc__top"><h3>SEO</h3><span class="tag tag--opt">&#8377;40,000 monthly &middot; optional</span></div>
+        <div class="cols">
+          <div class="col">
+            <h4>Pros</h4>
+            <ul>
+              <li>Brings blended cost per lead down: organic enquiries arrive without media spend</li>
+              <li>Compounds: results accelerate sharply after about a year and keep running</li>
+              <li>Competitors ranking today get free the leads we pay &#8377;350 a click for</li>
+              <li>Hedges against rising click costs, which only move one way in this category</li>
+            </ul>
+          </div>
+          <div class="col col--con">
+            <h4>Cons</h4>
+            <ul>
+              <li>Seven to eight months before meaningful results: about &#8377;2.8L to &#8377;3.2L spent before the first real return</li>
+              <li>No guaranteed positions: competitors and algorithm changes both move the target</li>
+              <li>Needs content and site structure to keep pace, so it is not a standalone service</li>
+            </ul>
+          </div>
+          <div class="col rec">
+            <h4>Our recommendation</h4>
+            <p>Strongly recommended, and most brands skip it for exactly the wrong reason: the wait. The clock runs only once. Starting in month one means leads in month eight; starting in month six means leads in month fourteen. If cash flow forces a delay, begin at month three once ads have proven the lead economics.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ads">
+    <div class="wrap sec">
+      <div class="sec__head">
+        <p class="label">The maths behind the budget</p>
+        <h2>Why &#8377;60,000 a month.</h2>
+        <p class="lede">A daily budget that cannot afford enough clicks exhausts itself early in the day and starves Google's algorithm of the conversion data it needs to optimise.</p>
+      </div>
+      <div class="tablewrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Metric</th><th scope="col">Conservative</th><th scope="col">Optimal learning</th><th scope="col">This plan</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Clicks per day</td><td class="v">3 to 4</td><td class="v">5</td><td class="this">5 to 6</td></tr>
+            <tr><td>Daily budget</td><td class="v">&#8377;1,150&ndash;1,400</td><td class="v">&#8377;1,750</td><td class="this">&#8377;2,000</td></tr>
+            <tr><td>Clicks per month</td><td class="v">about 100</td><td class="v">about 150</td><td class="this">about 170</td></tr>
+            <tr><td>Monthly budget</td><td class="v">&#8377;35,000&ndash;42,000</td><td class="v">&#8377;52,500</td><td class="this">&#8377;60,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="caption">Based on &#8377;350 average cost per click for high-competition interior design keywords. The 10-clicks-a-day rule of thumb would need &#8377;1,05,000 a month at this CPC.</p>
+
+      <div class="stats">
+        <div class="stat">
+          <span class="num">3 to 9</span>
+          <strong>Leads a month</strong>
+          <p>At 2% to 5% landing page conversion, the benchmark for interior design search intent. How many of those are qualified depends on keyword intent, location, project value and the qualification criteria we agree.</p>
+        </div>
+        <div class="stat">
+          <span class="num">&#8377;6,700&ndash;20,000</span>
+          <strong>Expected cost per lead</strong>
+          <p>Based on &#8377;60,000 ad spend and 3 to 9 leads a month. At &#8377;35,000 spend the range is 2 to 5 leads; at &#8377;52,500 it is 3 to 8.</p>
+        </div>
+        <div class="stat">
+          <span class="num">&#8377;50,000&ndash;1,00,000</span>
+          <strong>Cost to acquire a client</strong>
+          <p>At &#8377;10,000 a lead, a 20% close rate means &#8377;50,000 to win a client and a 10% close rate means &#8377;1,00,000. Against a &#8377;25L minimum project, that is under 1% of project value spent on media.</p>
+        </div>
+      </div>
+      <p class="caption">Month one is a dataset, not a sales target. With the agency fee included, early all-in cost per lead is &#8377;13,000 to &#8377;40,000, or &#8377;1.3L to &#8377;4L per closed client at a 10% close rate &mdash; 5% to 16% of one &#8377;25L project.</p>
+    </div>
+  </section>
+
+  <section id="guardrails">
+    <div class="wrap sec">
+      <div class="sec__head">
+        <p class="label">Risk controls</p>
+        <h2>Protecting the first &#8377;60,000.</h2>
+      </div>
+      <div class="grid2">
+        <div class="item">
+          <h3>Phrase and exact match only</h3>
+          <p>No broad match. It triggers ads for "interior design colleges" and "free interior design software" at full price.</p>
+        </div>
+        <div class="item">
+          <h3>Negative keywords loaded first</h3>
+          <p>jobs, recruitment, course, classes, salary, ideas, wallpaper, DIY, cheap, low cost &mdash; in before launch, not after.</p>
+        </div>
+        <div class="item">
+          <h3>Hyper-local geo-fencing</h3>
+          <p>Not all of India, not all of Tamil Nadu. Selected high-income pin codes, or a 5 to 10 km radius around premium residential hubs.</p>
+        </div>
+        <div class="item">
+          <h3>Manual bids with a hard cap</h3>
+          <p>Manual CPC or Maximise Clicks capped at &#8377;350 to &#8377;380. No uncapped Maximise Conversions until the account knows what a conversion looks like.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fee">
+    <div class="wrap sec">
+      <div class="sec__head">
+        <p class="label">Agency fee &middot; &#8377;60,000 monthly</p>
+        <h2>What the fee covers.</h2>
+      </div>
+      <div class="three">
+        <div class="item">
+          <h3>Campaign management</h3>
+          <p>Daily bid and budget control, search term review, negative keyword expansion, structural testing.</p>
+        </div>
+        <div class="item">
+          <h3>Creative and copy</h3>
+          <p>Ad copy variants, landing page copy, documentary cut-downs for retargeting.</p>
+        </div>
+        <div class="item">
+          <h3>Tracking</h3>
+          <p>Call and form tracking, GA4 and Google Ads conversion setup, heatmaps on the landing pages.</p>
+        </div>
+        <div class="item">
+          <h3>Conversion optimisation</h3>
+          <p>Iterative changes to the pages ads point at, based on what the heatmaps and form data show.</p>
+        </div>
+        <div class="item">
+          <h3>Reporting</h3>
+          <p>Monthly review of spend, cost per lead, lead quality and the next month's decisions.</p>
+        </div>
+        <div class="item">
+          <h3>Strategy</h3>
+          <p>Keyword and competitor research, budget allocation, and when to scale spend.</p>
+        </div>
+      </div>
+      <p class="perf">The fee is flat: as ad spend scales, it stays at &#8377;60,000, so fee against media improves every month. SEO execution &mdash; content, backlinks and technical work &mdash; sits under the separate &#8377;40,000 line.</p>
+    </div>
+  </section>
+
+  <section id="economics">
+    <div class="wrap sec">
+      <div class="sec__head">
+        <p class="label">Year one, in numbers</p>
+        <h2>When this pays for itself.</h2>
+        <p class="lede">Two closed projects cover the entire year of media and fees. Everything above that is margin, and the same monthly spend produces more leads as the account keeps learning.</p>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <span class="num">&#8377;15.70L</span>
+          <strong>Total year one</strong>
+          <p>&#8377;1,30,000 one time plus &#8377;1,20,000 a month. With SEO running all year: &#8377;20.50L.</p>
+        </div>
+        <div class="stat">
+          <span class="num">2 projects</span>
+          <strong>To break even</strong>
+          <p>At a &#8377;25L minimum project and 35% gross margin. Three projects if SEO runs all year.</p>
+        </div>
+        <div class="stat">
+          <span class="num">60&ndash;100</span>
+          <strong>Leads expected in the year</strong>
+          <p>Six to ten closed projects at a 10% close rate; nine to fifteen at 15%.</p>
+        </div>
+      </div>
+      <p class="caption">Projections, not guarantees. They assume &#8377;350 average CPC, 2&ndash;5% landing page conversion, a &#8377;25L minimum project and a 35% gross margin. Close rates are illustrative &mdash; replace any of these with your real numbers and the maths moves.</p>
+    </div>
+  </section>
+
+  <section id="next">
+    <div class="wrap sec">
+      <div class="sec__head">
+        <p class="label">Next steps</p>
+        <h2>Let's start the clock.</h2>
+      </div>
+      <div class="next">
+        <div class="phase">
+          <p class="label">This week</p>
+          <h3>Confirm and release</h3>
+          <p>Approve the scope and release the &#8377;2,50,000 first-month investment.</p>
+        </div>
+        <div class="phase">
+          <p class="label label--quiet">Weeks 1&ndash;3</p>
+          <h3>Build</h3>
+          <p>Branding, website and documentary produced; tracking and keywords ready to go.</p>
+        </div>
+        <div class="phase">
+          <p class="label label--quiet">Month 1</p>
+          <h3>Live</h3>
+          <p>Ads running, first enquiries landing, first set of real data in hand.</p>
+        </div>
+      </div>
+      <div class="contact">
+        <div class="contact__who">
+          <strong>Aravind, Founder</strong>
+          <span>Measure Pixel &middot; Chennai</span>
+        </div>
+        <div class="lines">
+          <div class="line">
+            <code id="mp-phone">+91 81240 84950</code>
+            <button class="copy" type="button" data-target="mp-phone">Copy</button>
+          </div>
+          <div class="line">
+            <code id="mp-email">aravind@measurepixel.com</code>
+            <button class="copy" type="button" data-target="mp-email">Copy</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Measure Pixel &middot; www.measurepixel.com</span>
+    <span>Proposal for Moksh Interio &middot; October 2026 &middot; valid 30 days</span>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.copy').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var el = document.getElementById(btn.dataset.target);
+    if (!el) return;
+    var text = el.textContent.trim();
+    var done = function () {
+      btn.textContent = 'Copied';
+      btn.dataset.done = '1';
+      setTimeout(function () { btn.textContent = 'Copy'; btn.dataset.done = '0'; }, 1600);
+    };
+    var select = function () {
+      var range = document.createRange();
+      range.selectNodeContents(el);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+      btn.textContent = 'Selected';
+      setTimeout(function () { btn.textContent = 'Copy'; }, 1600);
+    };
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, select);
+      } else { select(); }
+    } catch (e) { select(); }
+  });
+});
+</script>
+</body>
+</html>
