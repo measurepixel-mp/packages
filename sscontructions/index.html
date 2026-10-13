@@ -1,0 +1,785 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Measure Pixel growth proposal for SS Constructions: content, paid advertising and lead management as one system, with a Phase 1 offer.">
+<meta name="robots" content="noindex, nofollow">
+<title>SS Constructions Proposal</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: single scroll column, 1120px measure, hairline-ruled sections; money set in mono. Committed single dark brand world (Measure Pixel lime on olive-warm black). */
+:root{
+  --ink:#111210;
+  --surface:#1A1C18;
+  --surface-2:#22251F;
+  --line:#2E322A;
+  --fg:#F2F3EE;
+  --muted:#A3A69C;
+  --accent:#CEF03B;
+  --accent-ink:#15180C;
+  --accent-dim:#9CB82C;
+  --display:'Manrope', 'Helvetica Neue', Arial, sans-serif;
+  --mono:'JetBrains Mono', ui-monospace, 'Courier New', monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--ink);
+  color:var(--fg);
+  font-family:var(--display);
+  font-weight:500;
+  font-size:clamp(16px,1.05vw,18px);
+  line-height:1.6;
+  letter-spacing:-0.005em;
+}
+img{max-width:100%}
+[hidden]{display:none!important}
+h1,h2,h3{margin:0;text-wrap:balance;font-weight:800;letter-spacing:-0.035em;line-height:1.04}
+h1{font-size:clamp(38px,6.6vw,78px)}
+h2{font-size:clamp(28px,4.4vw,52px)}
+h3{font-size:clamp(19px,1.5vw,23px);font-weight:700;letter-spacing:-0.02em;line-height:1.25}
+p{margin:0}
+a{color:var(--accent)}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:20px}
+.label{
+  font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--accent);margin:0;
+}
+.label--quiet{color:var(--muted)}
+.lede{font-size:clamp(18px,1.6vw,22px);color:var(--muted);line-height:1.55;max-width:62ch}
+.num{font-family:var(--mono);font-weight:700;letter-spacing:-0.02em;font-variant-numeric:tabular-nums}
+
+/* header */
+.top{
+  position:sticky;top:env(safe-area-inset-top,0px);z-index:20;
+  background:rgba(17,18,16,0.86);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.top__in{display:flex;align-items:center;gap:20px;min-height:64px}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.brand svg{flex:none}
+.brand b{font-weight:800;font-size:16px;letter-spacing:-0.02em}
+.brand span{color:var(--muted);font-size:14px;white-space:nowrap}
+.navlinks{display:flex;gap:22px;margin-left:auto;flex-wrap:wrap}
+.navlinks a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600}
+.navlinks a:hover{color:var(--fg)}
+@media (max-width:860px){.navlinks{display:none}.brand span{display:none}}
+
+/* hero */
+.hero{padding-block:clamp(56px,9vw,112px) clamp(40px,6vw,72px)}
+.hero h1{margin-block:18px 20px;max-width:18ch}
+.hero__sub{font-size:clamp(20px,2.4vw,30px);color:var(--fg);font-weight:600;letter-spacing:-0.025em;max-width:34ch}
+.hero .lede{margin-top:20px}
+.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;margin:clamp(36px,5vw,56px) 0 0;overflow:hidden}
+.meta>div{background:var(--ink);padding:20px 22px;min-width:0}
+.meta dt{font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+.meta dd{margin:0;font-size:clamp(16px,1.5vw,19px);font-weight:700;letter-spacing:-0.01em;line-height:1.3}
+.meta dd small{display:block;font-size:14px;font-weight:500;color:var(--muted);margin-top:3px;letter-spacing:0}
+@media (max-width:820px){.meta{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:420px){.meta{grid-template-columns:1fr}}
+
+/* sections */
+section{border-top:1px solid var(--line)}
+.sec{padding-block:clamp(56px,7.5vw,96px)}
+.sec__head{display:flex;flex-direction:column;gap:14px;margin-bottom:clamp(32px,4vw,52px)}
+.statement{background:var(--accent);color:var(--accent-ink)}
+.statement .sec{padding-block:clamp(56px,8vw,104px)}
+.statement h2{max-width:24ch}
+.statement .label{color:#4E5A17}
+.statement p.big{font-size:clamp(18px,2vw,26px);line-height:1.45;max-width:58ch;margin-top:22px;font-weight:600}
+
+/* three-up / four-up */
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,2.6vw,40px)}
+@media (max-width:820px){.three{grid-template-columns:1fr}}
+.four{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,2.4vw,32px)}
+@media (max-width:1000px){.four{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.four{grid-template-columns:1fr}}
+.phase{border-top:1px solid var(--line);padding-top:20px;min-width:0}
+.phase:first-child{border-top-color:var(--accent);border-top-width:2px}
+.phase h3{margin-bottom:8px}
+.phase .label{margin-bottom:10px}
+.phase p{font-size:15px;color:var(--muted)}
+.phase ul{list-style:none;margin:14px 0 0;padding:0}
+.phase li{font-size:15px;color:var(--muted);padding:9px 0;border-top:1px solid var(--line);line-height:1.45}
+.phase__tag{display:inline-block;margin-top:14px;font-family:var(--mono);font-size:13px;font-weight:500;color:var(--accent)}
+
+/* partner vs vendor */
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,2.6vw,40px);margin-top:clamp(44px,5.5vw,72px)}
+@media (max-width:760px){.vs{grid-template-columns:1fr}}
+.vs__col{border-top:1px solid var(--line);padding-top:20px;min-width:0}
+.vs__col--us{border-top:2px solid var(--accent)}
+.vs__col h3{margin-bottom:12px}
+.vs__col ul{list-style:none;margin:0;padding:0}
+.vs__col li{padding:12px 0;border-bottom:1px solid var(--line);font-size:15px;line-height:1.5}
+.vs__col:not(.vs__col--us) li{color:var(--muted)}
+.vs__col li.end{font-weight:700}
+.vs__col--us li.end{color:var(--accent)}
+
+/* scope components */
+.comps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,2.6vw,32px);align-items:stretch}
+@media (max-width:900px){.comps{grid-template-columns:1fr}}
+.card{border:1px solid var(--line);border-radius:4px;padding:clamp(24px,2.6vw,34px);background:var(--surface);min-width:0}
+.card--lead{border-top:3px solid var(--accent);background:var(--surface-2)}
+.card__kicker{font-size:14px;font-weight:700;color:var(--muted);letter-spacing:0.04em;text-transform:uppercase}
+.comp{display:flex;flex-direction:column}
+.comp__tag{align-self:flex-start;font-family:var(--mono);font-weight:700;font-size:14px;color:var(--accent);border:1px solid var(--accent-dim);border-radius:999px;padding:2px 13px;margin-bottom:18px}
+.comp h3{font-size:clamp(22px,2vw,28px);margin-bottom:8px}
+.comp__lead{color:var(--muted);font-size:15px;margin-bottom:22px}
+.list{list-style:none;margin:0 0 22px;padding:0;border-top:1px solid var(--line)}
+.list li{padding:11px 0;border-bottom:1px solid var(--line);font-size:15px;line-height:1.5}
+.spec{margin-top:auto;border-top:1px solid var(--line)}
+.spec div{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid var(--line);font-size:14px}
+.spec span:first-child{color:var(--muted)}
+.spec span:last-child{font-family:var(--mono);font-weight:500;text-align:right}
+.chips{margin-top:clamp(32px,4vw,48px)}
+.chips .label{margin-bottom:14px}
+.chips ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.chips li{font-size:14px;font-weight:600;border:1px solid var(--line);border-radius:999px;padding:7px 15px;background:var(--surface)}
+
+/* journey + matrix */
+.jstep{border-top:1px solid var(--line);padding-top:20px;min-width:0}
+.jstep__n{font-family:var(--mono);font-size:14px;font-weight:700;color:var(--accent);display:block;margin-bottom:10px}
+.jstep h3{margin-bottom:8px}
+.jstep p{font-size:15px;color:var(--muted)}
+.subhead{margin-top:clamp(48px,6vw,80px);margin-bottom:22px}
+.subhead .label{margin-bottom:8px}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:4px}
+table{border-collapse:collapse;width:100%;font-size:15px}
+.tablewrap table{min-width:720px}
+th,td{text-align:left;padding:14px 18px;border-bottom:1px solid var(--line)}
+th{font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);font-weight:700;background:var(--surface);white-space:nowrap}
+tr:last-child td{border-bottom:none}
+td strong{display:block;font-weight:700}
+td small{display:block;font-size:13px;color:var(--muted);margin-top:2px}
+.matrix th:not(:first-child),.matrix td:not(:first-child){text-align:center}
+.mk{display:inline-block;width:14px;height:14px;border-radius:50%;vertical-align:middle}
+.mk--p{background:var(--accent)}
+.mk--s{border:2px solid var(--accent-dim)}
+.legend{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:16px;font-size:14px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:9px}
+.callout{margin-top:clamp(28px,3.4vw,44px);border:1px solid var(--line);border-left:3px solid var(--accent);background:var(--surface);padding:20px 24px;font-size:15px;color:var(--muted);max-width:84ch;border-radius:4px;line-height:1.6}
+.callout strong{color:var(--fg)}
+
+/* investment */
+.invest{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,2.5vw,36px);align-items:stretch}
+@media (max-width:820px){.invest{grid-template-columns:1fr}}
+.invest h3{margin:10px 0 4px;font-size:clamp(22px,2.1vw,28px)}
+.note{font-size:14px;color:var(--muted)}
+.valid{display:inline-block;margin-top:14px;font-family:var(--mono);font-size:13px;font-weight:500;color:var(--accent);border:1px solid var(--accent-dim);border-radius:999px;padding:3px 12px}
+.rows{margin-top:22px;border-top:1px solid var(--line)}
+.rows>div{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);font-size:15px}
+.rows>div>span:last-child{font-family:var(--mono);font-weight:500;white-space:nowrap;padding-top:1px}
+.rows .sub{display:block;font-size:13px;color:var(--muted);margin-top:3px}
+.rows .tot{border-bottom:none;padding-top:20px;font-weight:700;font-size:17px;align-items:baseline}
+.rows .tot>span:last-child{font-size:clamp(24px,2.6vw,32px);font-weight:700}
+.rows .tot small{font-family:var(--display);font-size:14px;font-weight:600;color:var(--muted);letter-spacing:0}
+.card--lead .rows .tot>span:last-child{color:var(--accent)}
+.pill{display:inline-block;font-style:normal;font-family:var(--display);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:1px 9px;color:var(--muted);margin-left:8px;vertical-align:1px;white-space:nowrap}
+.pill--fee{border-color:var(--accent-dim);color:var(--accent)}
+.split{margin-top:22px}
+.split__bar{display:flex;height:10px;border-radius:2px;overflow:hidden;background:var(--line)}
+.split__bar i{display:block;height:100%}
+.split__fee{width:60%;background:var(--accent)}
+.split__ad{width:40%;background:#5B6150}
+.split__legend{display:flex;justify-content:space-between;gap:12px;margin-top:9px;font-size:13px;font-weight:600;color:var(--muted)}
+.vstable td.v{font-family:var(--mono);font-weight:500;white-space:nowrap}
+.vstable td.diff{font-family:var(--mono);font-weight:700;color:var(--accent);white-space:nowrap}
+.vstable tr.total td{font-weight:700;background:var(--surface)}
+.vstable tr.total td.v,.vstable tr.total td.diff{font-weight:700}
+.vstable .tablewrap table{min-width:600px}
+.notes{margin-top:clamp(32px,4vw,48px);display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(20px,2.6vw,40px)}
+@media (max-width:760px){.notes{grid-template-columns:1fr}}
+.item{border-top:1px solid var(--line);padding-top:18px;min-width:0}
+.item h3{margin-bottom:8px}
+.item p{font-size:15px;color:var(--muted)}
+.item__n{font-family:var(--mono);font-size:14px;font-weight:700;color:var(--accent);display:block;margin-bottom:10px}
+
+/* working together */
+.two{display:grid;grid-template-columns:1fr 1.25fr;gap:clamp(24px,3vw,48px);align-items:start}
+@media (max-width:860px){.two{grid-template-columns:1fr}}
+.commit h3{margin:12px 0 18px}
+.commit ul{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.commit li{padding:13px 0;border-bottom:1px solid var(--line);font-size:15px;line-height:1.5}
+.needs{display:flex;flex-direction:column;gap:22px}
+
+/* next steps + contact */
+.next{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,2.6vw,40px);margin-bottom:clamp(40px,5vw,64px)}
+@media (max-width:820px){.next{grid-template-columns:1fr}}
+.contact{border:1px solid var(--line);border-radius:4px;background:var(--surface);padding:clamp(24px,3vw,40px);display:flex;flex-wrap:wrap;gap:24px 40px;align-items:flex-end;justify-content:space-between}
+.contact__who strong{display:block;font-size:19px;font-weight:800;letter-spacing:-0.02em}
+.contact__who span{font-size:15px;color:var(--muted)}
+.lines{display:flex;flex-direction:column;gap:10px}
+.line{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.line code{font-family:var(--mono);font-size:15px;color:var(--fg);background:none}
+.copy{
+  font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
+  color:var(--muted);background:none;border:1px solid var(--line);border-radius:999px;padding:4px 10px;cursor:pointer;
+}
+.copy:hover{color:var(--accent);border-color:var(--accent-dim)}
+.copy[data-done="1"]{color:var(--accent-ink);background:var(--accent);border-color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+footer{border-top:1px solid var(--line);padding-block:32px 48px;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-between}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap top__in">
+    <div class="brand">
+      <svg width="26" height="26" viewBox="0 0 52 52" aria-label="Measure Pixel"><path d="M4 6 L26 27 L48 6 V33 L38 33 V17 L26 29 L14 17 V44 L4 44 Z" fill="#CEF03B"/><rect x="30" y="35" width="10" height="10" fill="#CEF03B"/></svg>
+      <b>Measure Pixel</b>
+      <span>&middot;&nbsp; Proposal for SS Constructions</span>
+    </div>
+    <nav class="navlinks" aria-label="Sections">
+      <a href="#approach">Approach</a>
+      <a href="#scope">Scope</a>
+      <a href="#journey">Journey</a>
+      <a href="#investment">Investment</a>
+      <a href="#plan">90 days</a>
+      <a href="#success">Success</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <p class="label">Proposal</p>
+    <h1>Construction Growth &amp; Lead Generation System</h1>
+    <p class="hero__sub">Getting SS Constructions More Qualified Enquiries</p>
+    <p class="lede">A coordinated growth system combining social media, video content, paid advertising, a conversion-focused landing page, and structured lead management, built and run by Measure Pixel as your growth partner.</p>
+    <dl class="meta">
+      <div><dt>Prepared for</dt><dd>Sathyaseelan<small>Founder, SS Constructions</small></dd></div>
+      <div><dt>Prepared by</dt><dd>Measure Pixel</dd></div>
+      <div><dt>Date</dt><dd>October 2026</dd></div>
+      <div><dt>Offer valid until</dt><dd>15 October 2026</dd></div>
+    </dl>
+  </div>
+
+  <section class="statement" id="approach">
+    <div class="wrap sec">
+      <p class="label">The approach</p>
+      <h2>Enquiries come from a system, not a single campaign.</h2>
+      <p class="big">Construction is a high-trust, high-value decision. Prospects need to see real work, believe in the quality, and get a fast, clear response when they reach out. Ads alone rarely carry that load. We connect every stage, from the first video a prospect sees to the follow-up call that books a site visit.</p>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap sec">
+      <div class="three">
+        <div class="phase">
+          <p class="label">01</p>
+          <h3>Show the work</h3>
+          <p>Monthly on-site video turns your projects, process, and quality into proof prospects can see before they call.</p>
+        </div>
+        <div class="phase">
+          <p class="label label--quiet">02</p>
+          <h3>Reach the right people</h3>
+          <p>Meta Ads put that proof in front of relevant prospects, with continuous testing focused on enquiry quality, not just volume.</p>
+        </div>
+        <div class="phase">
+          <p class="label label--quiet">03</p>
+          <h3>Never lose an enquiry</h3>
+          <p>A dedicated landing page and CRM capture every lead, track its source, and give your team a clear follow-up path.</p>
+        </div>
+      </div>
+
+      <div class="vs">
+        <div class="vs__col">
+          <h3>A typical marketing vendor</h3>
+          <ul>
+            <li>Posts content and runs ads in isolation</li>
+            <li>Reports on reach, clicks, and likes</li>
+            <li>Hands over leads and stops there</li>
+            <li class="end">Measures activity</li>
+          </ul>
+        </div>
+        <div class="vs__col vs__col--us">
+          <h3>Measure Pixel as growth partner</h3>
+          <ul>
+            <li>Builds content, ads, landing page, and CRM as one system</li>
+            <li>Reports on enquiry quality, follow-up, and site visits</li>
+            <li>Works with your team on how leads are handled</li>
+            <li class="end">Measures what moves projects forward</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="scope">
+    <div class="wrap sec">
+      <div class="sec__head">
+        <p class="label">Scope of work</p>
+        <h2>Three components. One growth system.</h2>
+        <p class="lede">Each component has a distinct job. Together they cover the full path from first impression to booked site visit.</p>
+      </div>
+
+      <div class="comps">
+        <div class="card comp">
+          <span class="comp__tag">A</span>
+          <h3>Social Media &amp; Content</h3>
+          <p class="comp__lead">Builds visibility and trust through real project proof.</p>
+          <ul class="list">
+            <li>Social media strategy and content planning</li>
+            <li>One video shoot per month</li>
+            <li>Video editing and performance creative development</li>
+            <li>Construction site, project progress, quality, process, and customer proof content</li>
+          </ul>
+          <div class="spec">
+            <div><span>Edited videos per month</span><span>6</span></div>
+            <div><span>Posts per month</span><span>4</span></div>
+          </div>
+        </div>
+        <div class="card comp">
+          <span class="comp__tag">B</span>
+          <h3>Paid Advertising</h3>
+          <p class="comp__lead">Puts the right proof in front of the right prospects.</p>
+          <ul class="list">
+            <li>Meta Ads campaign strategy and management</li>
+            <li>Facebook and Instagram advertising</li>
+            <li>Audience targeting, campaign testing, monitoring, and optimisation</li>
+            <li>Lead quality and enquiry source tracking</li>
+          </ul>
+          <div class="spec">
+            <div><span>Ad creatives</span><span>Repurposed from the monthly social media videos</span></div>
+            <div><span>Platforms</span><span>Facebook &amp; Instagram (Meta)</span></div>
+          </div>
+        </div>
+        <div class="card comp">
+          <span class="comp__tag">C</span>
+          <h3>Growth System</h3>
+          <p class="comp__lead">Captures, organises, and moves every enquiry forward.</p>
+          <ul class="list">
+            <li>Conversion-focused landing page</li>
+            <li>CRM-based lead capture and organisation</li>
+            <li>Structured lead follow-up workflow</li>
+            <li>Enquiry tracking and performance reporting</li>
+          </ul>
+          <div class="spec">
+            <div><span>Reporting</span><span>Weekly</span></div>
+            <div><span>CRM platform</span><span>TeleCRM</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="chips">
+        <p class="label label--quiet">Content we'll capture</p>
+        <ul>
+          <li>Site walkthroughs</li>
+          <li>Project progress</li>
+          <li>Build quality &amp; materials</li>
+          <li>Process &amp; team</li>
+          <li>Completed properties</li>
+          <li>Customer stories</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="journey">
+    <div class="wrap sec">
+      <div class="sec__head">
+        <p class="label">The customer journey</p>
+        <h2>From first view to signed project.</h2>
+        <p class="lede">Every component is placed where a prospect needs it most. This is the intended flow the system is designed to support.</p>
+      </div>
+
+      <div class="three">
+        <div class="jstep">
+          <span class="jstep__n">1</span>
+          <h3>Visibility</h3>
+          <p>Targeted Meta Ads and consistent social content put SS Constructions in front of relevant prospects in your service area.</p>
+          <span class="phase__tag">Ads &middot; Social</span>
+        </div>
+        <div class="jstep">
+          <span class="jstep__n">2</span>
+          <h3>Trust</h3>
+          <p>Site videos, progress updates, and customer proof show the quality of your work before a prospect ever calls.</p>
+          <span class="phase__tag">Video content</span>
+        </div>
+        <div class="jstep">
+          <span class="jstep__n">3</span>
+          <h3>Enquiry</h3>
+          <p>A focused landing page or enquiry channel makes it simple to share requirements and request a call.</p>
+          <span class="phase__tag">Landing page</span>
+        </div>
+        <div class="jstep">
+          <span class="jstep__n">4</span>
+          <h3>Follow-up</h3>
+          <p>Every lead lands in the CRM with its source, so your team knows who to call, when, and what was discussed.</p>
+          <span class="phase__tag">CRM workflow</span>
+        </div>
+        <div class="jstep">
+          <span class="jstep__n">5</span>
+          <h3>Site Visit</h3>
+          <p>Qualified prospects are guided toward a site visit or meeting, the point where serious buyers commit time.</p>
+          <span class="phase__tag">Your team &middot; CRM</span>
+        </div>
+        <div class="jstep">
+          <span class="jstep__n">6</span>
+          <h3>Project</h3>
+          <p>Your team converts the opportunity. Outcomes are fed back so we can focus spend on what produces real projects.</p>
+          <span class="phase__tag">Feedback loop</span>
+        </div>
+      </div>
+
+      <div class="subhead">
+        <p class="label">Where each component works</p>
+        <h3>Component coverage across the journey</h3>
+      </div>
+      <div class="tablewrap">
+        <table class="matrix">
+          <thead>
+            <tr><th scope="col">Component</th><th scope="col">Visibility</th><th scope="col">Trust</th><th scope="col">Enquiry</th><th scope="col">Follow-up</th><th scope="col">Site Visit</th><th scope="col">Project</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>A &middot; Social &amp; Content</strong><small>Proof and recall</small></td>
+              <td><span class="mk mk--s" role="img" aria-label="Supporting role"></span></td>
+              <td><span class="mk mk--p" role="img" aria-label="Primary role"></span></td>
+              <td></td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+              <td><strong>B &middot; Paid Advertising</strong><small>Reach and targeting</small></td>
+              <td><span class="mk mk--p" role="img" aria-label="Primary role"></span></td>
+              <td></td>
+              <td><span class="mk mk--s" role="img" aria-label="Supporting role"></span></td>
+              <td></td><td></td><td></td>
+            </tr>
+            <tr>
+              <td><strong>C &middot; Growth System</strong><small>Capture, follow-up, tracking</small></td>
+              <td></td><td></td>
+              <td><span class="mk mk--p" role="img" aria-label="Primary role"></span></td>
+              <td><span class="mk mk--p" role="img" aria-label="Primary role"></span></td>
+              <td><span class="mk mk--s" role="img" aria-label="Supporting role"></span></td>
+              <td><span class="mk mk--s" role="img" aria-label="Supporting role"></span></td>
+            </tr>
+            <tr>
+              <td><strong>SS Constructions team</strong><small>Response and closing</small></td>
+              <td></td><td></td><td></td>
+              <td><span class="mk mk--s" role="img" aria-label="Supporting role"></span></td>
+              <td><span class="mk mk--p" role="img" aria-label="Primary role"></span></td>
+              <td><span class="mk mk--p" role="img" aria-label="Primary role"></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="legend">
+        <span><i class="mk mk--p"></i>Primary role</span>
+        <span><i class="mk mk--s"></i>Supporting role</span>
+      </div>
+      <p class="callout"><strong>The intended system, not a guarantee.</strong> Results depend on market conditions, offer, pricing, response speed, and sales follow-through. Our job is to build and continuously improve every stage we control, and report honestly on what is working.</p>
+    </div>
+  </section>
+
+  <section id="investment">
+    <div class="wrap sec">
+      <div class="sec__head">
+        <p class="label">Investment</p>
+        <h2>A special Phase 1 arrangement for SS Constructions.</h2>
+        <p class="lede">The full scope (content, paid advertising, and growth system) at a combined Phase 1 fee. Service fees and advertising budget are shown separately so it is always clear where each rupee goes.</p>
+      </div>
+
+      <div class="invest">
+        <div class="card">
+          <p class="card__kicker">Standard</p>
+          <h3>Standard Monthly Investment</h3>
+          <p class="note">Our regular pricing for this scope.</p>
+          <div class="rows">
+            <div><span>Social Media <i class="pill pill--fee">Fee</i></span><span>&#8377;50,000</span></div>
+            <div><span>Paid Ads &amp; Growth System <i class="pill pill--fee">Fee</i></span><span>&#8377;50,000</span></div>
+            <div><span>Advertising Budget <i class="pill">Ad spend</i></span><span>&#8377;50,000</span></div>
+            <div class="tot"><span>Total</span><span>&#8377;1,50,000 <small>/ month</small></span></div>
+          </div>
+        </div>
+
+        <div class="card card--lead">
+          <p class="card__kicker">Phase 1 Offer</p>
+          <h3>Special Phase 1</h3>
+          <p class="note">Phase 1 Investment. Same three-component scope, combined into one service fee.</p>
+          <span class="valid">Valid until 15 October 2026</span>
+          <div class="rows">
+            <div><span>Combined service fee <i class="pill pill--fee">Fee</i><em class="sub" style="font-style:normal">Social Media + Paid Ads &amp; Growth System</em></span><span>&#8377;60,000</span></div>
+            <div><span>Advertising budget <i class="pill">Ad spend</i><em class="sub" style="font-style:normal">Allocated to the agreed advertising platforms</em></span><span>&#8377;40,000</span></div>
+          </div>
+          <div class="split" aria-hidden="true">
+            <div class="split__bar"><i class="split__fee"></i><i class="split__ad"></i></div>
+            <div class="split__legend"><span>Service fee &middot; 60%</span><span>Ad budget &middot; 40%</span></div>
+          </div>
+          <div class="rows" style="margin-top:18px">
+            <div class="tot"><span>Total</span><span>&#8377;1,00,000 <small>/ month</small></span></div>
+          </div>
+          <p class="note" style="margin-top:6px">Plus applicable GST.</p>
+        </div>
+      </div>
+
+      <div class="subhead">
+        <p class="label">Side by side</p>
+        <h3>Monthly comparison</h3>
+      </div>
+      <div class="vstable">
+        <div class="tablewrap">
+          <table>
+            <thead>
+              <tr><th scope="col">Monthly</th><th scope="col">Standard</th><th scope="col">Phase 1</th><th scope="col">Difference</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Service fees</strong><small>Social Media + Paid Ads &amp; Growth System</small></td>
+                <td class="v">&#8377;1,00,000</td><td class="v">&#8377;60,000</td><td class="diff">&minus;&#8377;40,000</td>
+              </tr>
+              <tr>
+                <td><strong>Advertising budget</strong></td>
+                <td class="v">&#8377;50,000</td><td class="v">&#8377;40,000</td><td class="diff">&minus;&#8377;10,000</td>
+              </tr>
+              <tr class="total">
+                <td>Total monthly investment</td>
+                <td class="v">&#8377;1,50,000</td><td class="v">&#8377;1,00,000</td><td class="diff">&minus;&#8377;50,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="notes">
+        <div class="item">
+          <h3>Service fee and ad budget are separate</h3>
+          <p>The &#8377;60,000 service fee covers Measure Pixel's work. The &#8377;40,000 advertising budget is spent on media only.</p>
+        </div>
+        <div class="item">
+          <h3>Ad spend goes to the platforms</h3>
+          <p>The advertising budget is allocated to the agreed advertising platforms (Meta: Facebook and Instagram).</p>
+        </div>
+        <div class="item">
+          <h3>No one-time setup fee</h3>
+          <p>Landing page and CRM setup are included in Phase 1. No additional setup charges apply unless specifically approved by you.</p>
+        </div>
+        <div class="item">
+          <h3>Phase 1 term: 3 months</h3>
+          <p>Aligned to the 90-day plan below. All amounts are exclusive of applicable GST.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="plan">
+    <div class="wrap sec">
+      <div class="sec__head">
+        <p class="label">The first 90 days</p>
+        <h2>Set up, learn, optimise, then scale.</h2>
+        <p class="lede">Phase 1 is structured to build a reliable baseline first, then improve on real data, not assumptions.</p>
+      </div>
+      <div class="four">
+        <div class="phase">
+          <p class="label">Days 1&ndash;7</p>
+          <h3>Setup</h3>
+          <ul>
+            <li>Onboarding and access</li>
+            <li>Campaign and content planning</li>
+            <li>Landing page and CRM preparation</li>
+            <li>Confirm shoot schedule and launch requirements</li>
+          </ul>
+        </div>
+        <div class="phase">
+          <p class="label label--quiet">Month 1</p>
+          <h3>Launch &amp; Learn</h3>
+          <ul>
+            <li>Begin campaigns</li>
+            <li>Establish performance benchmarks</li>
+            <li>Track enquiry quality and follow-up</li>
+          </ul>
+        </div>
+        <div class="phase">
+          <p class="label label--quiet">Month 2</p>
+          <h3>Optimise</h3>
+          <ul>
+            <li>Review campaign and creative performance</li>
+            <li>Improve targeting and enquiry handling</li>
+            <li>Refine the best-performing approaches</li>
+          </ul>
+        </div>
+        <div class="phase">
+          <p class="label label--quiet">Month 3</p>
+          <h3>Evaluate &amp; Scale</h3>
+          <ul>
+            <li>Identify the strongest opportunities</li>
+            <li>Review qualified enquiries and site visits</li>
+            <li>Present findings and recommendations for the next phase</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="success">
+    <div class="wrap sec">
+      <div class="sec__head">
+        <p class="label">What success looks like</p>
+        <h2>Measured on enquiries, not impressions.</h2>
+        <p class="lede">We track the indicators that connect marketing to business outcomes. Month 1 sets the benchmarks; Months 2 and 3 are judged on improvement against them.</p>
+      </div>
+      <div class="three">
+        <div class="item">
+          <span class="item__n">01</span>
+          <h3>Relevant enquiries generated</h3>
+          <p>Enquiries that match your service area, project type, and budget range.</p>
+        </div>
+        <div class="item">
+          <span class="item__n">02</span>
+          <h3>Cost per enquiry</h3>
+          <p>Advertising spend divided by enquiries, tracked by campaign and creative.</p>
+        </div>
+        <div class="item">
+          <span class="item__n">03</span>
+          <h3>Qualified enquiries</h3>
+          <p>Leads your team confirms as serious, reachable, and a fit for SS Constructions.</p>
+        </div>
+        <div class="item">
+          <span class="item__n">04</span>
+          <h3>Follow-up completion</h3>
+          <p>The share of enquiries contacted and progressed through the CRM workflow.</p>
+        </div>
+        <div class="item">
+          <span class="item__n">05</span>
+          <h3>Site visits booked</h3>
+          <p>Prospects who commit time to see a site, property, or meet your team.</p>
+        </div>
+        <div class="item">
+          <span class="item__n">06</span>
+          <h3>Opportunities &amp; projects closed</h3>
+          <p>Tracked where sales outcome data is shared back into the CRM.</p>
+        </div>
+      </div>
+      <p class="callout"><strong>No promised volumes.</strong> We do not promise specific enquiry volumes, cost per lead, site visits, or signed projects. We commit to building the system properly, optimising it every month, and reporting transparently on each of these indicators.</p>
+    </div>
+  </section>
+
+  <section id="working">
+    <div class="wrap sec">
+      <div class="sec__head">
+        <p class="label">Working together</p>
+        <h2>What we'll need from SS Constructions.</h2>
+        <p class="lede">The strongest results come when marketing and the sales team work as one. These inputs keep the system moving.</p>
+      </div>
+      <div class="two">
+        <div class="card card--lead commit">
+          <p class="card__kicker">Our side</p>
+          <h3>What Measure Pixel commits to</h3>
+          <ul>
+            <li>Planning, shooting, editing, and publishing content</li>
+            <li>Building and managing campaigns, landing page, and CRM</li>
+            <li>Clear, regular reporting on the indicators that matter</li>
+            <li>Honest recommendations on what to scale and what to stop</li>
+          </ul>
+        </div>
+        <div class="needs">
+          <div class="item">
+            <h3>Site and property access</h3>
+            <p>Access to relevant project sites and completed properties for monthly shoots.</p>
+          </div>
+          <div class="item">
+            <h3>Brand and project information</h3>
+            <p>Brand materials, project details, and approved pricing information for ads and the landing page.</p>
+          </div>
+          <div class="item">
+            <h3>A decision-maker for approvals</h3>
+            <p>Timely access to the person who can approve content and campaigns.</p>
+          </div>
+          <div class="item">
+            <h3>Prompt enquiry response</h3>
+            <p>A team member assigned to respond to enquiries quickly. Speed of response directly affects conversion.</p>
+          </div>
+          <div class="item">
+            <h3>Feedback on leads and sales</h3>
+            <p>Regular feedback on lead quality and sales outcomes so we can optimise toward real projects.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="next">
+    <div class="wrap sec">
+      <div class="sec__head">
+        <p class="label">Next step</p>
+        <h2>Let's build a consistent enquiry system for SS Constructions.</h2>
+      </div>
+      <div class="next">
+        <div class="phase">
+          <p class="label">01</p>
+          <h3>Approve Phase 1</h3>
+          <p>Confirm the scope and the &#8377;1,00,000/month Phase 1 investment (plus GST).</p>
+        </div>
+        <div class="phase">
+          <p class="label label--quiet">02</p>
+          <h3>Onboarding call</h3>
+          <p>We collect access, brand materials, and project details, and lock the first shoot date.</p>
+        </div>
+        <div class="phase">
+          <p class="label label--quiet">03</p>
+          <h3>Launch within the first weeks</h3>
+          <p>Landing page, CRM, and campaigns go live following the Days 1&ndash;7 setup.</p>
+        </div>
+      </div>
+      <div class="contact">
+        <div class="contact__who">
+          <strong>Aravind, Founder</strong>
+          <span>Measure Pixel &middot; Chennai</span>
+        </div>
+        <div class="lines">
+          <div class="line">
+            <code id="mp-phone">+91 81240 84950</code>
+            <button class="copy" type="button" data-target="mp-phone">Copy</button>
+          </div>
+          <div class="line">
+            <code id="mp-email">aravind@measurepixel.com</code>
+            <button class="copy" type="button" data-target="mp-email">Copy</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Measure Pixel &middot; Prepared exclusively for SS Constructions</span>
+    <span>Confidential proposal &middot; All amounts in INR, exclusive of applicable GST</span>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.copy').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var el = document.getElementById(btn.dataset.target);
+    if (!el) return;
+    var text = el.textContent.trim();
+    var done = function () {
+      btn.textContent = 'Copied';
+      btn.dataset.done = '1';
+      setTimeout(function () { btn.textContent = 'Copy'; btn.dataset.done = '0'; }, 1600);
+    };
+    var select = function () {
+      var range = document.createRange();
+      range.selectNodeContents(el);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+      btn.textContent = 'Selected';
+      setTimeout(function () { btn.textContent = 'Copy'; }, 1600);
+    };
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, select);
+      } else { select(); }
+    } catch (e) { select(); }
+  });
+});
+</script>
+</body>
+</html>
