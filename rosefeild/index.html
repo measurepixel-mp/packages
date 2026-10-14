@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Measure Pixel personal branding and lead generation proposal for Rosefield.">
+<meta name="robots" content="noindex, nofollow">
+<title>Rosefield Proposal</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&amp;display=swap">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&amp;display=swap">
+<style>
+/* Layout: single scroll column, 1120px measure, hairline-ruled sections; money set in mono. Committed single dark brand world (Measure Pixel lime on olive-warm black). */
+:root{
+  --ink:#231F1E;
+  --surface:#2C2827;
+  --surface-2:#332E2D;
+  --line:#443E3C;
+  --fg:#FFFFFF;
+  --muted:#B4AEAB;
+  --accent:#CEF03B;
+  --accent-ink:#231F1E;
+  --accent-dim:#9CB82C;
+  --display:'Satoshi', 'Manrope', 'Helvetica Neue', Arial, sans-serif;
+  --mono:'JetBrains Mono', ui-monospace, 'Courier New', monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--ink);
+  color:var(--fg);
+  font-family:var(--display);
+  font-weight:500;
+  font-size:clamp(16px,1.05vw,18px);
+  line-height:1.6;
+  letter-spacing:-0.005em;
+}
+img{max-width:100%}
+[hidden]{display:none!important}
+h1,h2,h3{margin:0;text-wrap:balance;font-weight:800;letter-spacing:-0.035em;line-height:1.04}
+h1{font-size:clamp(38px,6.6vw,78px)}
+h2{font-size:clamp(28px,4.4vw,52px)}
+h3{font-size:clamp(19px,1.5vw,23px);font-weight:700;letter-spacing:-0.02em;line-height:1.25}
+p{margin:0}
+a{color:var(--accent)}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:20px}
+.label{
+  font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--accent);margin:0;
+}
+.label--quiet{color:var(--muted)}
+.lede{font-size:clamp(18px,1.6vw,22px);color:var(--muted);line-height:1.55;max-width:62ch}
+.num{font-family:var(--mono);font-weight:700;letter-spacing:-0.02em;font-variant-numeric:tabular-nums}
+
+/* header */
+.top{
+  position:sticky;top:env(safe-area-inset-top,0px);z-index:20;
+  background:rgba(35,31,30,0.88);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.top__in{display:flex;align-items:center;gap:20px;min-height:64px}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.brand svg{flex:none}
+.brand b{font-weight:800;font-size:16px;letter-spacing:-0.02em}
+.brand span{color:var(--muted);font-size:14px;white-space:nowrap}
+.navlinks{display:flex;gap:22px;margin-left:auto;flex-wrap:wrap}
+.navlinks a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600}
+.navlinks a:hover{color:var(--fg)}
+@media (max-width:860px){.navlinks{display:none}.brand span{display:none}}
+
+/* hero */
+.hero{padding-block:clamp(56px,9vw,112px) clamp(40px,6vw,72px)}
+.hero h1{margin-block:18px 20px;max-width:18ch}
+.hero__sub{font-size:clamp(20px,2.4vw,30px);color:var(--fg);font-weight:600;letter-spacing:-0.025em;max-width:34ch}
+.hero .lede{margin-top:20px}
+.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;margin:clamp(36px,5vw,56px) 0 0;overflow:hidden}
+.meta>div{background:var(--ink);padding:20px 22px;min-width:0}
+.meta dt{font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+.meta dd{margin:0;font-size:clamp(16px,1.5vw,19px);font-weight:700;letter-spacing:-0.01em;line-height:1.3}
+.meta dd small{display:block;font-size:14px;font-weight:500;color:var(--muted);margin-top:3px;letter-spacing:0}
+@media (max-width:820px){.meta{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:420px){.meta{grid-template-columns:1fr}}
+
+/* sections */
+section{border-top:1px solid var(--line)}
+.sec{padding-block:clamp(56px,7.5vw,96px)}
+.sec__head{display:flex;flex-direction:column;gap:14px;margin-bottom:clamp(32px,4vw,52px)}
+.statement{background:var(--accent);color:var(--accent-ink)}
+.statement .sec{padding-block:clamp(56px,8vw,104px)}
+.statement h2{max-width:24ch}
+.statement .label{color:#4E5A17}
+.statement p.big{font-size:clamp(18px,2vw,26px);line-height:1.45;max-width:58ch;margin-top:22px;font-weight:600}
+
+/* three-up / four-up */
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,2.6vw,40px)}
+@media (max-width:820px){.three{grid-template-columns:1fr}}
+.four{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,2.4vw,32px)}
+@media (max-width:1000px){.four{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.four{grid-template-columns:1fr}}
+.phase{border-top:1px solid var(--line);padding-top:20px;min-width:0}
+.phase:first-child{border-top-color:var(--accent);border-top-width:2px}
+.phase h3{margin-bottom:8px}
+.phase .label{margin-bottom:10px}
+.phase p{font-size:15px;color:var(--muted)}
+.phase ul{list-style:none;margin:14px 0 0;padding:0}
+.phase li{font-size:15px;color:var(--muted);padding:9px 0;border-top:1px solid var(--line);line-height:1.45}
+.phase__tag{display:inline-block;margin-top:14px;font-family:var(--mono);font-size:13px;font-weight:500;color:var(--accent)}
+
+/* partner vs vendor */
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,2.6vw,40px);margin-top:clamp(44px,5.5vw,72px)}
+@media (max-width:760px){.vs{grid-template-columns:1fr}}
+.vs__col{border-top:1px solid var(--line);padding-top:20px;min-width:0}
+.vs__col--us{border-top:2px solid var(--accent)}
+.vs__col h3{margin-bottom:12px}
+.vs__col ul{list-style:none;margin:0;padding:0}
+.vs__col li{padding:12px 0;border-bottom:1px solid var(--line);font-size:15px;line-height:1.5}
+.vs__col:not(.vs__col--us) li{color:var(--muted)}
+.vs__col li.end{font-weight:700}
+.vs__col--us li.end{color:var(--accent)}
+
+/* scope components */
+.comps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,2.6vw,32px);align-items:stretch}
+@media (max-width:900px){.comps{grid-template-columns:1fr}}
+.card{border:1px solid var(--line);border-radius:4px;padding:clamp(24px,2.6vw,34px);background:var(--surface);min-width:0}
+.card--lead{border-top:3px solid var(--accent);background:var(--surface-2)}
+.card__kicker{font-size:14px;font-weight:700;color:var(--muted);letter-spacing:0.04em;text-transform:uppercase}
+.comp{display:flex;flex-direction:column}
+.comp__tag{align-self:flex-start;font-family:var(--mono);font-weight:700;font-size:14px;color:var(--accent);border:1px solid var(--accent-dim);border-radius:999px;padding:2px 13px;margin-bottom:18px}
+.comp h3{font-size:clamp(22px,2vw,28px);margin-bottom:8px}
+.comp__lead{color:var(--muted);font-size:15px;margin-bottom:22px}
+.list{list-style:none;margin:0 0 22px;padding:0;border-top:1px solid var(--line)}
+.list li{padding:11px 0;border-bottom:1px solid var(--line);font-size:15px;line-height:1.5}
+.spec{margin-top:auto;border-top:1px solid var(--line)}
+.spec div{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid var(--line);font-size:14px}
+.spec span:first-child{color:var(--muted)}
+.spec span:last-child{font-family:var(--mono);font-weight:500;text-align:right}
+.chips{margin-top:clamp(32px,4vw,48px)}
+.chips .label{margin-bottom:14px}
+.chips ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.chips li{font-size:14px;font-weight:600;border:1px solid var(--line);border-radius:999px;padding:7px 15px;background:var(--surface)}
+
+/* journey + matrix */
+.jstep{border-top:1px solid var(--line);padding-top:20px;min-width:0}
+.jstep__n{font-family:var(--mono);font-size:14px;font-weight:700;color:var(--accent);display:block;margin-bottom:10px}
+.jstep h3{margin-bottom:8px}
+.jstep p{font-size:15px;color:var(--muted)}
+.subhead{margin-top:clamp(48px,6vw,80px);margin-bottom:22px}
+.subhead .label{margin-bottom:8px}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:4px}
+table{border-collapse:collapse;width:100%;font-size:15px}
+.tablewrap table{min-width:720px}
+th,td{text-align:left;padding:14px 18px;border-bottom:1px solid var(--line)}
+th{font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);font-weight:700;background:var(--surface);white-space:nowrap}
+tr:last-child td{border-bottom:none}
+td strong{display:block;font-weight:700}
+td small{display:block;font-size:13px;color:var(--muted);margin-top:2px}
+.matrix th:not(:first-child),.matrix td:not(:first-child){text-align:center}
+.mk{display:inline-block;width:14px;height:14px;border-radius:50%;vertical-align:middle}
+.mk--p{background:var(--accent)}
+.mk--s{border:2px solid var(--accent-dim)}
+.legend{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:16px;font-size:14px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:9px}
+.callout{margin-top:clamp(28px,3.4vw,44px);border:1px solid var(--line);border-left:3px solid var(--accent);background:var(--surface);padding:20px 24px;font-size:15px;color:var(--muted);max-width:84ch;border-radius:4px;line-height:1.6}
+.callout strong{color:var(--fg)}
+
+/* investment */
+.invest{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,2.5vw,36px);align-items:stretch}
+@media (max-width:820px){.invest{grid-template-columns:1fr}}
+.invest h3{margin:10px 0 4px;font-size:clamp(22px,2.1vw,28px)}
+.note{font-size:14px;color:var(--muted)}
+.valid{display:inline-block;margin-top:14px;font-family:var(--mono);font-size:13px;font-weight:500;color:var(--accent);border:1px solid var(--accent-dim);border-radius:999px;padding:3px 12px}
+.rows{margin-top:22px;border-top:1px solid var(--line)}
+.rows>div{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);font-size:15px}
+.rows>div>span:last-child{font-family:var(--mono);font-weight:500;white-space:nowrap;padding-top:1px}
+.rows .sub{display:block;font-size:13px;color:var(--muted);margin-top:3px}
+.rows .tot{border-bottom:none;padding-top:20px;font-weight:700;font-size:17px;align-items:baseline}
+.rows .tot>span:last-child{font-size:clamp(24px,2.6vw,32px);font-weight:700}
+.rows .tot small{font-family:var(--display);font-size:14px;font-weight:600;color:var(--muted);letter-spacing:0}
+.card--lead .rows .tot>span:last-child{color:var(--accent)}
+.pill{display:inline-block;font-style:normal;font-family:var(--display);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:1px 9px;color:var(--muted);margin-left:8px;vertical-align:1px;white-space:nowrap}
+.pill--fee{border-color:var(--accent-dim);color:var(--accent)}
+.split{margin-top:22px}
+.split__bar{display:flex;height:10px;border-radius:2px;overflow:hidden;background:var(--line)}
+.split__bar i{display:block;height:100%}
+.split__fee{width:60%;background:var(--accent)}
+.split__ad{background:#6A6360}
+.split__legend{display:flex;justify-content:space-between;gap:12px;margin-top:9px;font-size:13px;font-weight:600;color:var(--muted)}
+.vstable td.v{font-family:var(--mono);font-weight:500;white-space:nowrap}
+.vstable td.diff{font-family:var(--mono);font-weight:700;color:var(--accent);white-space:nowrap}
+.vstable tr.total td{font-weight:700;background:var(--surface)}
+.vstable tr.total td.v,.vstable tr.total td.diff{font-weight:700}
+.vstable .tablewrap table{min-width:600px}
+.notes{margin-top:clamp(32px,4vw,48px);display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(20px,2.6vw,40px)}
+@media (max-width:760px){.notes{grid-template-columns:1fr}}
+.item{border-top:1px solid var(--line);padding-top:18px;min-width:0}
+.item h3{margin-bottom:8px}
+.item p{font-size:15px;color:var(--muted)}
+.item__n{font-family:var(--mono);font-size:14px;font-weight:700;color:var(--accent);display:block;margin-bottom:10px}
+
+/* working together */
+.two{display:grid;grid-template-columns:1fr 1.25fr;gap:clamp(24px,3vw,48px);align-items:start}
+@media (max-width:860px){.two{grid-template-columns:1fr}}
+.commit h3{margin:12px 0 18px}
+.commit ul{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.commit li{padding:13px 0;border-bottom:1px solid var(--line);font-size:15px;line-height:1.5}
+.needs{display:flex;flex-direction:column;gap:22px}
+
+/* next steps + contact */
+.next{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,2.6vw,40px);margin-bottom:clamp(40px,5vw,64px)}
+@media (max-width:820px){.next{grid-template-columns:1fr}}
+.contact{border:1px solid var(--line);border-radius:4px;background:var(--surface);padding:clamp(24px,3vw,40px);display:flex;flex-wrap:wrap;gap:24px 40px;align-items:flex-end;justify-content:space-between}
+.contact__who strong{display:block;font-size:19px;font-weight:800;letter-spacing:-0.02em}
+.contact__who span{font-size:15px;color:var(--muted)}
+.lines{display:flex;flex-direction:column;gap:10px}
+.line{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.line code{font-family:var(--mono);font-size:15px;color:var(--fg);background:none}
+.copy{
+  font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
+  color:var(--muted);background:none;border:1px solid var(--line);border-radius:999px;padding:4px 10px;cursor:pointer;
+}
+.copy:hover{color:var(--accent);border-color:var(--accent-dim)}
+.copy[data-done="1"]{color:var(--accent-ink);background:var(--accent);border-color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+footer{border-top:1px solid var(--line);padding-block:32px 48px;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-between}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+.brand img{height:34px;width:auto;display:block}
+.hero h1{max-width:20ch}
+.strike{font-family:var(--mono);font-weight:500;font-size:clamp(18px,1.8vw,22px);color:var(--muted);text-decoration:line-through;text-decoration-thickness:2px}
+.offer__big{font-family:var(--mono);font-weight:700;letter-spacing:-0.03em;font-size:clamp(34px,4.6vw,56px);line-height:1.05;color:var(--accent)}
+.offer__big small{font-family:var(--display);font-size:clamp(16px,1.6vw,20px);font-weight:700;color:var(--fg);letter-spacing:0}
+.offer__save{display:inline-block;margin-top:14px;font-family:var(--mono);font-size:13px;color:var(--accent);border:1px solid var(--accent-dim);border-radius:999px;padding:3px 12px}
+.inc{margin-top:26px;border-top:1px solid var(--line)}
+.inc div{padding:18px 0;border-bottom:1px solid var(--line)}
+.inc strong{display:block;font-size:17px;font-weight:700;letter-spacing:-0.01em}
+.inc p{font-size:15px;color:var(--muted);margin-top:4px}
+.inc .tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent-dim);border-radius:999px;padding:1px 9px;margin-left:8px;vertical-align:2px}
+.choice{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,2.6vw,40px);align-items:start}
+@media (max-width:820px){.choice{grid-template-columns:1fr}}
+.gridtable td.r,.gridtable th.r{text-align:right}
+.gridtable td.v{font-family:var(--mono);font-weight:500}
+.gridtable td.vv{font-family:var(--mono);font-weight:700;color:var(--accent)}
+.gridtable tr.total td{font-weight:700;background:var(--surface)}
+.fine{margin-top:14px;font-size:14px;color:var(--muted)}
+.closer{margin-top:clamp(36px,5vw,64px);font-size:clamp(22px,3vw,38px);font-weight:800;letter-spacing:-0.03em;line-height:1.15;max-width:26ch}
+.closer span{color:var(--accent)}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap top__in">
+    <div class="brand">
+      <img src="/rosefeild/measure-pixel-logo-white.png" alt="Measure Pixel" width="90" height="34">
+      <span>&middot;&nbsp; Proposal for Rosefield</span>
+    </div>
+    <nav class="navlinks" aria-label="Sections">
+      <a href="#objective">Objective</a>
+      <a href="#standard">Standard</a>
+      <a href="#phase1">Phase 1 offer</a>
+      <a href="#compare">Comparison</a>
+      <a href="#approach">Approach</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <p class="label">Proposal</p>
+    <h1>Rosefield</h1>
+    <p class="hero__sub">Personal Branding &amp; Lead Generation Proposal</p>
+    <p class="lede">Building the founder's influence. Growing the brand. Generating opportunities.</p>
+  </div>
+
+  <section class="statement" id="objective">
+    <div class="wrap sec">
+      <p class="label">1. Our objective</p>
+      <h2>Because people connect with people, not just brands.</h2>
+      <p class="big">Position the founder of Rosefield at the forefront of the brand, building visibility, influence, and thought leadership in the real estate industry. By sharing his expertise, insights, and perspective, we aim to establish him as a recognizable and trusted voice in the niche.</p>
+      <p class="big">We put the founder in the spotlight and strategically integrate Rosefield into his personal brand, turning his visibility and credibility into greater brand awareness, trust, and business opportunities.</p>
+    </div>
+  </section>
+
+  <section id="standard">
+    <div class="wrap sec">
+      <div class="sec__head">
+        <p class="label">2. Standard growth package</p>
+        <h2>Personal branding, content, and paid advertising in one system.</h2>
+        <p class="lede">An integrated solution combining personal branding, content creation, and paid advertising to build authority and generate property enquiries.</p>
+      </div>
+
+      <div class="comps">
+        <div class="card comp">
+          <span class="comp__tag">A</span>
+          <h3>Personal Branding &amp; Content Creation</h3>
+          <p class="comp__lead">Build the founder's visibility, establish thought leadership, and strengthen the reputation of Rosefield.</p>
+          <ul class="list">
+            <li>5 professionally edited videos per month, from footage supplied by Rosefield</li>
+            <li>Personal brand positioning and strategy</li>
+            <li>Content calendar and monthly planning</li>
+            <li>Topic research based on buyer questions and real estate market insights</li>
+            <li>Video scripting and creative direction for self-recorded footage</li>
+            <li>Professional video editing and post-production</li>
+            <li>Hooks, captions, and calls to action</li>
+            <li>Content optimised for relevant social media platforms</li>
+            <li>Performance review and recommendations</li>
+          </ul>
+          <div class="spec"><div><span>Investment</span><span>&#8377;50,000 / month</span></div></div>
+        </div>
+
+        <div class="card comp">
+          <span class="comp__tag">B</span>
+          <h3>Lead Generation Management</h3>
+          <p class="comp__lead">Generate relevant property enquiries through targeted digital advertising and optimise campaigns based on performance.</p>
+          <ul class="list">
+            <li>Lead generation strategy and campaign setup</li>
+            <li>Audience and location targeting</li>
+            <li>Campaign structure and optimisation</li>
+            <li>Ad copy and creative direction</li>
+            <li>Lead form or landing page recommendations</li>
+            <li>Conversion tracking and performance monitoring</li>
+            <li>Lead quality analysis and reporting</li>
+          </ul>
+          <div class="spec">
+            <div><span>Platforms</span><span>Google Ads &amp; Meta Ads</span></div>
+            <div><span>Investment</span><span>&#8377;50,000 / month</span></div>
+          </div>
+        </div>
+
+        <div class="card comp">
+          <span class="comp__tag">C</span>
+          <h3>Advertising Budget</h3>
+          <p class="comp__lead">The media spend that puts the campaigns in front of buyers.</p>
+          <ul class="list">
+            <li>Budget allocation across Google and Meta based on campaign objectives</li>
+            <li>Campaign performance monitoring and optimisation</li>
+            <li>Budget recommendations based on results</li>
+          </ul>
+          <div class="spec">
+            <div><span>Recommended</span><span>&#8377;50,000 / month</span></div>
+            <div><span>Paid to</span><span>The ad platforms directly</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subhead">
+        <p class="label">Standard monthly investment</p>
+        <h3>What the standard package adds up to</h3>
+      </div>
+      <div class="tablewrap">
+        <table class="gridtable">
+          <thead><tr><th scope="col">Component</th><th scope="col" class="r">Monthly investment</th></tr></thead>
+          <tbody>
+            <tr><td>Personal Branding &amp; Content Creation</td><td class="r v">&#8377;50,000</td></tr>
+            <tr><td>Lead Generation Management</td><td class="r v">&#8377;50,000</td></tr>
+            <tr><td>Advertising Budget</td><td class="r v">&#8377;50,000</td></tr>
+            <tr class="total"><td>Total Monthly Investment</td><td class="r v">&#8377;1,50,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="fine">GST is additional on applicable service fees. Advertising spend is separate.</p>
+    </div>
+  </section>
+
+  <section id="phase1">
+    <div class="wrap sec">
+      <div class="sec__head">
+        <p class="label">3. Phase 1 special growth offer</p>
+        <h2>Get both services for the price of one.</h2>
+        <p class="lede">For Phase 1, we are extending a special opportunity to Rosefield: receive the complete personal branding and lead generation management package for the price of personal branding alone.</p>
+      </div>
+
+      <div class="card card--lead">
+        <span class="comp__tag" style="margin-bottom:14px">Phase 1 special offer</span>
+        <p class="note">Standard combined service value</p>
+        <p class="strike">&#8377;1,00,000/month</p>
+        <p class="note" style="margin-top:20px">Your special monthly service fee</p>
+        <p class="offer__big">&#8377;50,000 <small>+ GST</small></p>
+        <span class="offer__save">Save &#8377;50,000/month on service fees</span>
+
+        <div class="inc">
+          <div>
+            <strong>Personal Branding &amp; Content Creation</strong>
+            <p>5 professionally edited videos per month, including content strategy, planning, scripting, and editing. No shoot days included; footage is supplied by Rosefield.</p>
+          </div>
+          <div>
+            <strong>Lead Generation Management<i class="tag">Included</i></strong>
+            <p>Meta Ads lead generation management, including campaign setup, targeting, optimisation, tracking, and reporting, at no additional management fee during Phase 1.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="subhead">
+        <p class="label">Phase 1 advertising budget</p>
+        <h3>Your choice</h3>
+      </div>
+      <div class="choice">
+        <p class="lede" style="font-size:clamp(17px,1.4vw,19px)">Unlike the standard package, the Phase 1 special offer does not require a fixed advertising budget. The recommended &#8377;50,000 is a guideline, not a mandatory commitment.</p>
+        <div class="rows" style="margin-top:0">
+          <div><span>Our recommendation</span><span>&#8377;50,000/month</span></div>
+          <div><span>Your decision<em class="sub" style="font-style:normal">Choose a budget that suits your business priorities</em></span><span>Flexible</span></div>
+          <div><span>Your flexibility<em class="sub" style="font-style:normal">Start with your preferred amount and adjust based on campaign performance</em></span><span>Adjustable</span></div>
+          <div><span>Direct payment<em class="sub" style="font-style:normal">Advertising spend is paid directly to Google or Meta</em></span><span>To platform</span></div>
+        </div>
+      </div>
+
+      <div class="subhead">
+        <p class="label">Phase 1 investment summary</p>
+        <h3>What Phase 1 adds up to</h3>
+      </div>
+      <div class="tablewrap">
+        <table class="gridtable">
+          <thead><tr><th scope="col">Component</th><th scope="col" class="r">Investment</th></tr></thead>
+          <tbody>
+            <tr><td>Personal Branding &amp; Content Creation</td><td class="r v">Included</td></tr>
+            <tr><td>Meta Ads Lead Generation Management</td><td class="r v">Complimentary during Phase 1</td></tr>
+            <tr class="total"><td>Total Service Fee</td><td class="r vv">&#8377;50,000/month + GST</td></tr>
+            <tr><td>Advertising Budget</td><td class="r v">Optional</td></tr>
+            <tr><td>Recommended Advertising Budget</td><td class="r v">&#8377;50,000/month</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="fine">Google Ads management is part of the standard package. The Phase 1 special offer specifically includes Meta Ads management.</p>
+    </div>
+  </section>
+
+  <section id="compare">
+    <div class="wrap sec">
+      <div class="sec__head">
+        <p class="label">4. Investment comparison</p>
+        <h2>Standard package against Phase 1 special.</h2>
+      </div>
+      <div class="tablewrap">
+        <table class="gridtable">
+          <thead><tr><th scope="col"></th><th scope="col">Standard package</th><th scope="col">Phase 1 special</th></tr></thead>
+          <tbody>
+            <tr><td>Personal Branding</td><td class="v">&#8377;50,000</td><td class="v">Included</td></tr>
+            <tr><td>Lead Generation Management</td><td class="v">&#8377;50,000</td><td class="v">Included</td></tr>
+            <tr><td>Advertising Budget</td><td class="v">&#8377;50,000</td><td class="v">Optional; &#8377;50,000 recommended</td></tr>
+            <tr class="total"><td>Service Fee</td><td class="v">&#8377;1,00,000 + GST</td><td class="vv">&#8377;50,000 + GST</td></tr>
+            <tr class="total"><td>Total at Recommended Ad Spend</td><td class="v">&#8377;1,50,000 + GST on services</td><td class="vv">&#8377;1,00,000 + GST on service fee</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="approach">
+    <div class="wrap sec">
+      <div class="sec__head">
+        <p class="label">5. Our approach</p>
+        <h2>Build influence. Establish trust. Generate opportunities.</h2>
+        <p class="lede">Our approach brings two important growth functions together.</p>
+      </div>
+      <div class="four">
+        <div class="phase">
+          <p class="label">01</p>
+          <h3>Make the founder the face of the brand</h3>
+          <p>Develop a recognizable personal brand through strategic content and thought leadership.</p>
+        </div>
+        <div class="phase">
+          <p class="label label--quiet">02</p>
+          <h3>Connect credibility with the business</h3>
+          <p>Integrate Rosefield into the founder's content and establish the company as the natural choice for relevant property enquiries.</p>
+        </div>
+        <div class="phase">
+          <p class="label label--quiet">03</p>
+          <h3>Activate lead generation</h3>
+          <p>Use Meta Ads to reach relevant audiences and generate enquiries.</p>
+        </div>
+        <div class="phase">
+          <p class="label label--quiet">04</p>
+          <h3>Optimise for growth</h3>
+          <p>Use campaign data and audience responses to guide future decisions.</p>
+        </div>
+      </div>
+      <p class="lede" style="margin-top:clamp(32px,4vw,52px)">The goal is to build more than an online presence. It is to develop a founder-led brand that earns attention, builds trust, and creates opportunities for Rosefield.</p>
+      <p class="closer">People connect with people. We put the founder in the spotlight and <span>bring the brand along with him.</span></p>
+    </div>
+  </section>
+
+  <section id="next">
+    <div class="wrap sec">
+      <div class="sec__head">
+        <p class="label">Next step</p>
+        <h2>Ready to start Phase 1?</h2>
+      </div>
+      <div class="contact">
+        <div class="contact__who">
+          <strong>Aravind, Founder</strong>
+          <span>Measure Pixel &middot; Chennai</span>
+        </div>
+        <div class="lines">
+          <div class="line"><code id="mp-phone">+91 81240 84950</code><button class="copy" type="button" data-target="mp-phone">Copy</button></div>
+          <div class="line"><code id="mp-email">aravind@measurepixel.com</code><button class="copy" type="button" data-target="mp-email">Copy</button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Measure Pixel &middot; Prepared exclusively for Rosefield</span>
+    <span>Confidential proposal &middot; All amounts in INR</span>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.copy').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var el = document.getElementById(btn.dataset.target);
+    if (!el) return;
+    var text = el.textContent.trim();
+    var done = function () {
+      btn.textContent = 'Copied';
+      btn.dataset.done = '1';
+      setTimeout(function () { btn.textContent = 'Copy'; btn.dataset.done = '0'; }, 1600);
+    };
+    var select = function () {
+      var range = document.createRange();
+      range.selectNodeContents(el);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+      btn.textContent = 'Selected';
+      setTimeout(function () { btn.textContent = 'Copy'; }, 1600);
+    };
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, select);
+      } else { select(); }
+    } catch (e) { select(); }
+  });
+});
+</script>
+</body>
+</html>
